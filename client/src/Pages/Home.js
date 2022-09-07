@@ -1,11 +1,14 @@
 import {useState} from 'react'
 const Home = () => {
     const[num,setNum] = useState(0);
-    const[display,setDisplay] = useState(false)
+    const[displayNum,setDisplayNum] = useState(0);
+
 
     const stop = (event) => {
         event.preventDefault();
-        setDisplay(true)
+    }
+    const show = () => {
+        setDisplayNum(num);
     }
     return(
         <div>
@@ -13,9 +16,9 @@ const Home = () => {
                 <input placeholder='Enter SSN...' 
                 onChange={(e) => setNum(e.target.value)}
                 required/>
-                <button type='submit'>Search</button>
+                <button onClick={show} type='submit'>Search</button>
             </form>
-            <h1>{display?num:''}</h1>
+            <h1>{displayNum===0?'':displayNum}</h1>
         </div>
     )
 }
