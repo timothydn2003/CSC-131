@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import '../App.js'
 const Home = () => {
     const[num,setNum] = useState(0);
     const[displayNum,setDisplayNum] = useState(0);
@@ -11,14 +12,19 @@ const Home = () => {
         setDisplayNum(num);
     }
     return(
-        <div>
-            <form onSubmit={stop}>
-                <input placeholder='Enter SSN...' 
-                onChange={(e) => setNum(e.target.value)}
-                required/>
-                <button onClick={show} type='submit'>Search</button>
-            </form>
-            <h1>{displayNum===0?'':displayNum}</h1>
+        <div className='home'>
+                <div className='content'>
+                    <form className='ssn-form' onSubmit={stop}>
+                        <label>Enter SSN</label>
+                        <input className='ssn-input'
+                        placeholder='xxx-xxx-xxxx' 
+                        onChange={(e) => setNum(e.target.value)}
+                        required/>
+                        <button className='submit-btn' onClick={show} type='submit'>Search</button>
+                    </form>
+                    <h1 className='num'>{displayNum===0?'':displayNum}</h1>
+                </div>
+
         </div>
     )
 }
