@@ -9,9 +9,6 @@ const client = createVendiaClient({
 })
 const { entities } = client;
 //Setting up Vendia
-const list = [
-
-]
 async function getData(){
     const list = await entities.people.list();
     app.get("/", (req,res) => {
