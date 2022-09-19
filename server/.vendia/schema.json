@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMV",
+  "description": "DMV Schema",
+  "type": "object",
+  "properties": {
+    "People": {
+      "description": "List of People in DMV database",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Full Name",
+            "type": "string"
+          },
+          "dl": {
+            "description": "Drivers License Number",
+            "type": "string"
+          },
+          "dob": {
+            "description": "Date of Birth",
+            "type": "string",
+            "format": "date"
+          },
+          "ssn": {
+            "description": "Social Security Number",
+            "type": "string"
+          },
+          "image": {
+            "description": "Image of Person",
+            "type": "string",
+            "format": "uri"
+          },
+          "passportnumber": {
+            "description": "Passport Number",
+            "type": "string"
+          },
+          "passportexpiration": {
+            "description": "Passport Expiration",
+            "type": "string",
+            "format": "date"
+          }
+        }
+      }
+    }
+  }
+}
