@@ -15,6 +15,7 @@ async function getData(){
     const list = await entities.people.list();
     app.get("/", (req,res) => {
         res.send(list)
+        console.log(list)
     })
 }
 getData();

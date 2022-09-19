@@ -3,6 +3,7 @@ import '../App.js'
 const Home = () => {
     const[num,setNum] = useState(0);
     const[displayNum,setDisplayNum] = useState(0);
+    const[people,setPeople] = useState([]);
 
 
     const stop = (event) => {
