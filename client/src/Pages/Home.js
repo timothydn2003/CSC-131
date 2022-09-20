@@ -6,7 +6,6 @@ import useFetch from '../useFetch.js';
 
 const Home = () => {
     const[num,setNum] = useState("");
-    const[ssn,setSSN] = useState("")
     const[people, setPeople] = useState([]);
     const[person,setPerson] = useState({})
     const {entities} = useFetch();
@@ -27,9 +26,8 @@ const Home = () => {
       //fetches data right when page loads
 
       const searchForPerson = () => {
-        setSSN(num);
         people.map((data) => {
-            if(data.ssn === ssn) {
+            if(data.ssn === num) {
                 setPerson(data)
             }
         })
