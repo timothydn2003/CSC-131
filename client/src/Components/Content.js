@@ -6,19 +6,19 @@ const Content = (props) => {
     return(
         <div className='data'>
         <Row>
-            <Col>
+            <Col md = "4" xs = "12">
                 <h1>DMV</h1>
                 <h5>{props.person.name}</h5>
                 <h5>{props.person.dl}</h5>
                 <h5>{props.person.dob}</h5>
                 <img className='image' src= {props.person.image}></img>
             </Col>
-            <Col md = "4"> 
+            <Col md = "4" xs = "12"> 
                 <h1>SS</h1>
                 <h5>{props.person.name}</h5>
                 <h5>{props.person.dob}</h5>
             </Col>
-            <Col> 
+            <Col md = "4" xs = "12"> 
                 <h1>Department of State</h1>
                 <h5>{props.person.name}</h5>
                 <h5>{props.person.dl}</h5>
