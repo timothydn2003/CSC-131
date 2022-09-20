@@ -10,6 +10,9 @@ header a{
   text-decoration: none;
   color: #333;
 }
+header a:hover{
+  color: #696969;
+}
 .home{
   max-width: 1200px;
   margin: 0 auto;
