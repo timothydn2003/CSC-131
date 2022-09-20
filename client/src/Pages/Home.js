@@ -46,7 +46,7 @@ const Home = () => {
                         <button className='submit-btn' onClick={() => searchForPerson()} type='submit'>Search</button>
                     </form>
                 </div>
-              <Content person = {person}/>
+                <Content person = {person}/>
 
         </div>
     )
