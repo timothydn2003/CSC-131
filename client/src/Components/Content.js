@@ -13,7 +13,7 @@ const Content = (props) => {
                 <h5>{props.person.dob}</h5>
                 <img className='image' src= {props.person.image}></img>
             </Col>
-            <Col> 
+            <Col md = "4"> 
                 <h1>SS</h1>
                 <h5>{props.person.name}</h5>
                 <h5>{props.person.dob}</h5>
