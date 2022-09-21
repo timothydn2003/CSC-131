@@ -26,6 +26,9 @@ const NewPerson = () => {
                 image:image,
                 passportnumber:passport,
                 passportexpiration: passportexpir
+            },
+            {
+                sycnMode: "ASYNC"
             })
           }
           getData();
