@@ -18,7 +18,7 @@ const NewPerson = () => {
     //prevent page from refreshing on form submit
     const send = () => {
         async function getData(){
-            const response = await entities.people.add({
+            await entities.people.add({
                 name:name,
                 dl:dl,
                 dob:dob,
