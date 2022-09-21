@@ -3,7 +3,6 @@ import '../App.js'
 import Content from '../Components/Content.js';
 import useFetch from '../useFetch.js';
 
-
 const Home = () => {
     const[num,setNum] = useState("");
     const[people, setPeople] = useState([]);

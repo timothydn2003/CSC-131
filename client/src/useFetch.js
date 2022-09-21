@@ -5,7 +5,7 @@ function useFetch() {
     const client = createVendiaClient({
         apiUrl: 'https://amoej1r6g6.execute-api.us-west-2.amazonaws.com/graphql/',
         websocketUrl: 'wss://k59wej25i2.execute-api.us-west-2.amazonaws.com/graphql',
-        apiKey: '2aviuYwaVpZtVgoBTbLpWmxwbwbhTFSTMNbXTjhQWJGg',
+        apiKey: 'GSofJZmQ2WWauWquRUDgAFaJ6G65czoAdWjsHNyoUroQ',
     })
     const { entities } = client;
     
