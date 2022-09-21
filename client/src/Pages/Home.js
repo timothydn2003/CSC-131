@@ -2,18 +2,31 @@ import { useState, useEffect } from 'react'
 import '../App.js'
 import Content from '../Components/Content.js';
 import useFetch from '../useFetch.js';
+import { validSSN } from '../regex.js';
 
 const Home = () => {
     const[num,setNum] = useState("");
     const[people, setPeople] = useState([]);
     const[person,setPerson] = useState({})
+    const [errSSN, setErrSSN] = useState(false);
     const {entities} = useFetch();
     //declaring states
+
+    const validate = () => {
+        if (!validSSN.test(num)) {
+           setErrSSN(true);
+        }
+        else if(validSSN.test(num)) {
+            setErrSSN(false);
+        }
+     };
+     //returns an error message if SSN is entered incorrectly
 
     const stop = (event) => {
         event.preventDefault();
     }
     //prevent page from refreshing on form submit
+
 
     useEffect( () => {
         async function getData(){
@@ -42,9 +55,12 @@ const Home = () => {
                         placeholder='xxx-xxx-xxxx' 
                         onChange={(e) => setNum(e.target.value)}
                         required/>
-                        <button className='submit-btn' onClick={() => searchForPerson()} type='submit'>Search</button>
+                        <button className='submit-btn' onClick={() => {validate(); searchForPerson()}} type='submit'>Search</button>
+                        {errSSN && <p>SSN is invalid. Please try again.</p>}
+                    
+                        
                     </form>
-                </div>
+                </div> 
                 <Content person = {person}/>
 
         </div>
