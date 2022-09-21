@@ -13,6 +13,9 @@ header a{
 header a:hover{
   color: #696969;
 }
+.links a{
+  margin-left: 10px;
+}
 .home{
   max-width: 1200px;
   margin: 0 auto;
@@ -55,4 +58,12 @@ label{
 }
 .data{
   margin-top: 40px;
+}
+.newPerson form{
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.newPerson form input{
+  display: block;
 }
