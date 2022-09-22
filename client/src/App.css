@@ -67,3 +67,11 @@ label{
 .newPerson form input{
   display: block;
 }
+.newPerson form button{
+  background-color: transparent;
+  padding: .5rem;
+}
+.newPerson form button:hover{
+  cursor: pointer;
+  background-color: grey;
+}
