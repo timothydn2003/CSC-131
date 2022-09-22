@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import useFetch from '../useFetch.js';
 import '../App.css';
 const NewPerson = () => {
@@ -16,6 +16,7 @@ const NewPerson = () => {
         event.preventDefault();
     }
     //prevent page from refreshing on form submit
+    
     const send = async() => {
         const response = await entities.people.add({
             name:name,
@@ -29,10 +30,13 @@ const NewPerson = () => {
         {
             sycnMode: "ASYNC"
         })
-      entities.product.onAdd((data) => {
-        alert(`A new person named ${data.result.name}been added!`);
-      });
     }
+    useEffect(() => {
+        const unsubscribe = entities.people.onAdd((data) => {
+            alert(`A new person named ${data.result.name} been added!`);
+        })
+        return () => unsubscribe();
+    })
     return(
         <div className='newPerson'>
             <form onSubmit={stop}>
