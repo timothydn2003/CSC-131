@@ -19,7 +19,7 @@ const Home = () => {
         else if(validSSN.test(num)) {
             setErrSSN(false);
         }
-     };
+    };
      //returns an error message if SSN is entered incorrectly
 
     const stop = (event) => {
