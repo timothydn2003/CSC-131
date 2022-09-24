@@ -52,7 +52,7 @@ const Home = () => {
                     <form className='ssn-form' onSubmit={stop}>
                         <label>Enter SSN</label><br></br>
                         <input className='ssn-input'
-                        placeholder='xxx-xxx-xxxx' 
+                        placeholder='xxx-xx-xxxx' 
                         onChange={(e) => setNum(e.target.value)}
                         required/>
                         <button className='submit-btn' onClick={() => {validate(); searchForPerson()}} type='submit'>Search</button>
