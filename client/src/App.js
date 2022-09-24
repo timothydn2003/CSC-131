@@ -2,12 +2,12 @@ import './App.css';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Home from './Pages/Home';
 import NewPerson from './Pages/NewPerson';
-import Nav from './Components/Nav';
+import Navigation from './Components/Nav';
 function App() {
   return (
     <div className="App">
       <Router>
-        <Nav />
+        <Navigation />
         <Routes>
           <Route path={'/'} element = {<Home />}/>
           <Route path={'/addPerson'} element = {<NewPerson />}/>

@@ -6,22 +6,15 @@
   align-items: center;
   justify-content: space-between;
 }
-header a{
-  text-decoration: none;
-  color: #333;
-}
-header a:hover{
-  color: #696969;
-}
-.links a{
-  margin-left: 20px;
-}
 .home{
   max-width: 1200px;
   margin: 0 auto;
   padding: 10px 20px;
   align-items: center;
   justify-content: center;
+}
+.nav-bar{
+  background-color: black;
 }
 .content{
   margin-left: auto;
