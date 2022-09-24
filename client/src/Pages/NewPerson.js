@@ -30,13 +30,16 @@ const NewPerson = () => {
         {
             sycnMode: "ASYNC"
         })
+        entities.people.onAdd((data) => {
+            alert(`A new person named ${data.result.name} been added!`);
+        })
     }
     useEffect(() => {
         const unsubscribe = entities.people.onAdd((data) => {
             alert(`A new person named ${data.result.name} been added!`);
         })
         return () => unsubscribe();
-    })
+    }, [])
     return(
         <div className='newPerson'>
             <form onSubmit={stop}>
