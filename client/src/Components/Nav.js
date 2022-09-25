@@ -4,22 +4,28 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import '../App.css'
 import {Link} from 'react-router-dom'
+import {LinkContainer} from 'react-router-bootstrap'
 
 function CollapsibleExample() {
   return (
+
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className='nav-bar'>
-      <Container>
-        <Navbar.Brand><Link to={'/'}><h3>TravelX</h3></Link></Navbar.Brand>
+      <Container >
+        <Navbar.Brand href="/"><h3>TravelX</h3></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-            </Nav>
-            <Nav>
-                <Nav.Link><Link to = {'/'}>Home</Link></Nav.Link>
-                <NavDropdown align={"end"} title="Edit" id="collasible-nav-dropdown">
-                <NavDropdown.Item ><Link to={'/addPerson'}>Add a New Person</Link></NavDropdown.Item>
-                </NavDropdown>
-            </Nav>
+          <Nav className="me-auto">
+          </Nav>
+          <Nav>
+            <LinkContainer to="/">
+              <Nav.Link>Home</Nav.Link>
+            </LinkContainer>
+            <NavDropdown align={"end"} title="Edit" id="collasible-nav-dropdown">
+              <LinkContainer to="/addPerson">
+                <NavDropdown.Item>Add a New Person</NavDropdown.Item>
+              </LinkContainer>
+            </NavDropdown>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
