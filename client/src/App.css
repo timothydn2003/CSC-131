@@ -3,7 +3,7 @@
   font-family: "Poppins";
 }
 .home{
-  margin: 0 auto;
+  margin-top: 20px;
   padding: 10px 20px;
   align-items: center;
   justify-content: center;
@@ -36,7 +36,8 @@ label{
 }
 .ssn-input{
   padding: .5rem;
-  border-radius: 10px;;
+  border-radius: 10px;
+  margin-right: 20px;
 }
 .submit-btn{
   padding: .5rem;
@@ -70,9 +71,6 @@ label{
 .newPerson form button{
   margin-top: 10px;
 }
-#date1{
-  margin-right: 300px;
-}
 .MuiFormLabel-root{
   margin-right: 20px;
   margin-bottom: 20px;
@@ -81,7 +79,4 @@ label{
   margin-right: 20px;
   margin-bottom: 20px;
 
-}
-.date1{
-  margin-right: 400px;
 }
