@@ -52,18 +52,32 @@ label{
   margin-top: 20px;
 }
 .newPerson form{
-  width: 300px;
+  width: 530px;
+  height: 380px;
+  padding: 2rem;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 100px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .newPerson form input{
-  display: block;
+ margin-left: 20px;
 }
 .newPerson form button{
-  background-color: transparent;
-  padding: .5rem;
+  margin-top: 10px;
 }
-.newPerson form button:hover{
-  cursor: pointer;
-  background-color: grey;
+#date1{
+  margin-right: 300px;
+}
+.MuiFormLabel-root{
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.MuiInputBase-root{
+  margin-right: 20px;
+  margin-bottom: 20px;
+
+}
+.date1{
+  margin-right: 400px;
 }
