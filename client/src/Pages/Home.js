@@ -51,7 +51,7 @@ const Home = () => {
         <div className='home'>
                 <div className='content'>
                     <form className='ssn-form' onSubmit={stop}>
-                        <label>Enter SSN</label><br></br>
+                        <label>Enter SSN</label>
                         <input className='ssn-input'
                         placeholder='xxx-xx-xxxx' 
                         onChange={(e) => setNum(e.target.value)}
