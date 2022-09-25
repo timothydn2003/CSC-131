@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
-import '../App.js'
+import '../App.js';
 import Content from '../Components/Content.js';
 import useFetch from '../useFetch.js';
 import { validSSN } from '../regex.js';
-
+import { Button } from "@mui/material";
+import PersonSearchRoundedIcon from '@mui/icons-material/PersonSearchRounded';
 const Home = () => {
     const[num,setNum] = useState("");
     const[people, setPeople] = useState([]);
@@ -55,7 +56,19 @@ const Home = () => {
                         placeholder='xxx-xx-xxxx' 
                         onChange={(e) => setNum(e.target.value)}
                         required/>
-                        <button className='submit-btn' onClick={() => {validate(); searchForPerson()}} type='submit'>Search</button>
+                        <Button 
+                        disableElevation
+                        id='submit-btn' 
+                        variant='contained'
+                        color='success'
+                        size='large'
+                        style={{position: "absolute", borderRadius: "10px",padding: ".5rem",
+                                textTransform: "capitalize"}}
+                        onClick={() => {validate(); searchForPerson()}} 
+                        type='submit'>Search
+                        <PersonSearchRoundedIcon/>
+                        </Button>
+                        
                         {errSSN && <p>SSN is invalid. Please try again.</p>}
                     
                         
