@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import useFetch from '../useFetch.js';
 import '../App.css';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 const NewPerson = () => {
     const[name,setName] = useState("")
     const[dl,setDl] = useState("")
@@ -59,6 +61,9 @@ const NewPerson = () => {
                 <input onChange={(e) => setPassportExpir(e.target.value)} type = 'date' required/>
                 <button type='submit' onClick={send}>Submit</button>
             </form>
+            {/* <Box sx={{ display: 'flex' }}>
+                <CircularProgress />
+            </Box> */}
         </div>
     )
 }
