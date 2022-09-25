@@ -70,9 +70,6 @@ label{
 .newPerson form button{
   margin-top: 10px;
 }
-#date1{
-  margin-right: 300px;
-}
 .MuiFormLabel-root{
   margin-right: 20px;
   margin-bottom: 20px;
@@ -81,7 +78,4 @@ label{
   margin-right: 20px;
   margin-bottom: 20px;
 
-}
-.date1{
-  margin-right: 400px;
 }
