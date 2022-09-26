@@ -5,6 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import '../App.css'
 import {Link} from 'react-router-dom'
 import {LinkContainer} from 'react-router-bootstrap'
+import Theme from '../Theme';
 
 function CollapsibleExample() {
   return (
@@ -28,6 +29,7 @@ function CollapsibleExample() {
           </Nav>
         </Navbar.Collapse>
       </Container>
+      <Theme/>
     </Navbar>
   );
 }
