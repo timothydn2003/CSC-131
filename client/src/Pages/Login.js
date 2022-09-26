@@ -1,5 +1,6 @@
 import { Button,TextField } from "@mui/material";
 import { useState } from 'react'
+import LoginIcon from '@mui/icons-material/Login';
 
 const Login = () => {
     const[email,setEmail] = useState("")
@@ -19,7 +20,6 @@ const Login = () => {
         }
     }
 
-
     return(
         <div className="login-page">
             <form className="login-form" onSubmit={stop}>
@@ -35,7 +35,8 @@ const Login = () => {
                     style={{position: "absolute", borderRadius: "10px",padding: ".5rem",
                             textTransform: "capitalize"}}
                     onClick={() => {check()}} 
-                    type='submit'>Add New Person
+                    type='submit'>Login
+                    <LoginIcon />
                 </Button>
             </form>
         </div>
