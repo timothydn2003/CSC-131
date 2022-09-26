@@ -1,3 +1,4 @@
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -5,10 +6,9 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import '../App.css'
 import {Link} from 'react-router-dom'
 import {LinkContainer} from 'react-router-bootstrap'
-
+import Theme from '../Theme'
 function CollapsibleExample() {
   return (
-
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className='nav-bar'>
       <Container >
         <Navbar.Brand href="/"><h3>TravelX</h3></Navbar.Brand>
@@ -24,10 +24,11 @@ function CollapsibleExample() {
               <LinkContainer to="/addPerson">
                 <NavDropdown.Item>Add a New Person</NavDropdown.Item>
               </LinkContainer>
-            </NavDropdown>
+            </NavDropdown>    
           </Nav>
         </Navbar.Collapse>
       </Container>
+      <Theme/>
     </Navbar>
   );
 }
