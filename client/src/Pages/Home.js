@@ -4,7 +4,9 @@ import Content from '../Components/Content.js';
 import useFetch from '../useFetch.js';
 import { validSSN } from '../regex.js';
 import { Button } from "@mui/material";
+import { PatternFormat } from "react-number-format";
 import PersonSearchRoundedIcon from '@mui/icons-material/PersonSearchRounded';
+
 const Home = () => {
     const[num,setNum] = useState("");
     const[people, setPeople] = useState([]);
@@ -52,26 +54,26 @@ const Home = () => {
                 <div className='content'>
                     <form className='ssn-form' onSubmit={stop}>
                         <label>Enter SSN</label><br/>
-                        <input className='ssn-input'
-                        placeholder='xxx-xx-xxxx' 
-                        onChange={(e) => setNum(e.target.value)}
-                        required/>
+                       <PatternFormat className= 'ssn-input'
+                            format="###-##-####" 
+                            placeholder='xxx-xx-xxxx'
+                            onChange={(e) => setNum(e.target.value)}
+                        /> 
                         <Button 
-                        disableElevation
-                        id='submit-btn' 
-                        variant='contained'
-                        color='success'
-                        size='large'
-                        style={{position: "absolute", borderRadius: "10px",padding: ".5rem",
+                            disableElevation
+                            id='submit-btn' 
+                            variant='contained'
+                            color='success'
+                            size='large'
+                            style={{position: "absolute", borderRadius: "10px",padding: ".5rem",
                                 textTransform: "capitalize"}}
-                        onClick={() => {validate(); searchForPerson()}} 
-                        type='submit'>Search
+                            onClick={() => {validate(); searchForPerson()}} 
+                            type='submit'>Search
                         <PersonSearchRoundedIcon/>
                         </Button>
                         
                         {errSSN && <p>SSN is invalid. Please try again.</p>}
                     
-                        
                     </form>
                 </div> 
                 <Content person = {person}/>
