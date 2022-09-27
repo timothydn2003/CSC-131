@@ -57,8 +57,7 @@ const Home = () => {
                        <PatternFormat className= 'ssn-input'
                             format="###-##-####" 
                             placeholder='xxx-xx-xxxx'
-                            onChange={(e) => {setNum(e.target.value)
-                            console.log(e.target.value)}}
+                            onChange={(e) => setNum(e.target.value)}
                         /> 
                         <Button 
                             disableElevation
