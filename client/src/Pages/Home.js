@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import '../App.js';
 import Content from '../Components/Content.js';
-import useFetch from '../useFetch.js';
+import useFetch from '../Hooks/useFetch.js';
 import { validSSN } from '../regex.js';
 import { Button } from "@mui/material";
 import { PatternFormat } from "react-number-format";
