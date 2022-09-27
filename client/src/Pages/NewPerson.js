@@ -53,7 +53,7 @@ const NewPerson = () => {
                     label="Date of Birth"
                     type="date"
                     onChange={(e) => setDob(e.target.value)} required
-                    sx={{ width: 230 }}
+                    sx={{ width: 260 }}
                     InputLabelProps={{
                     shrink: true,
                     }}
@@ -66,7 +66,7 @@ const NewPerson = () => {
                     label="Passport Expiration"
                     type="date"
                     onChange={(e) => setPassportExpir(e.target.value)} required
-                    sx={{ width: 230 }}
+                    sx={{ width: 260 }}
                     InputLabelProps={{
                     shrink: true,
                     }}
