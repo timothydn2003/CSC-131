@@ -1,11 +1,68 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "DMV",
-  "description": "DMV Schema",
+  "title": "Uni Schema",
+  "description": "Empty uni schema",
   "type": "object",
   "properties": {
-    "People": {
-      "description": "List of People in DMV database",
+    "DMV": {
+      "description": "DMV Data",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Full Name",
+            "type": "string"
+          },
+          "dl": {
+            "description": "Drivers License Number",
+            "type": "string"
+          },
+          "dob": {
+            "description": "Date of Birth",
+            "type": "string",
+            "format": "date"
+          },
+          "ssn": {
+            "description": "Social Security Number",
+            "type": "string"
+          },
+          "image": {
+            "description": "Image Person",
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "SS": {
+      "description": "SS Data",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Full Name",
+            "type": "string"
+          },
+          "dl": {
+            "description": "Drivers License Number",
+            "type": "string"
+          },
+          "dob": {
+            "description": "Date of Birth",
+            "type": "string",
+            "format": "date"
+          },
+          "ssn": {
+            "description": "Social Security Number",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "DOS": {
+      "description": "DOS Data",
       "type": "array",
       "items": {
         "type": "object",

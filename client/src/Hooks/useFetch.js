@@ -3,9 +3,9 @@ import { createVendiaClient } from '@vendia/client';
 
 function useFetch() {
     const client = createVendiaClient({
-        apiUrl: 'https://amoej1r6g6.execute-api.us-west-2.amazonaws.com/graphql/',
-        websocketUrl: 'wss://k59wej25i2.execute-api.us-west-2.amazonaws.com/graphql',
-        apiKey: 'GSofJZmQ2WWauWquRUDgAFaJ6G65czoAdWjsHNyoUroQ',
+        apiUrl: 'https://dv4wp9iyfc.execute-api.us-west-2.amazonaws.com/graphql/',
+        websocketUrl: 'wss://9mb2aemyqd.execute-api.us-west-2.amazonaws.com/graphql',
+        apiKey: 'D4mAPkeqdJrVAuSzmTHYdRDwrx91gdzCT2v5RbSDuXSV',
     })
     const { entities } = client;
     

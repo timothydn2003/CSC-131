@@ -3,31 +3,22 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import '../App.css'
+import DMV from './DMV';
+import SS from './SS';
+import DOS from './DOS';
 const Content = (props) => {
     return(
         <div className='data'>
         <Container>
             <Row>
                 <Col md = "4" xs = "12">
-                    <h2>Department of Motor Vehicles</h2>
-                    <img className='image' src= {props.person.image}></img>
-                    <h5>{props.person.name}</h5>
-                    <h5>{props.person.dl}</h5>
-                    <h5>{props.person.dob}</h5>
+                  <DMV person = {props.dmvPerson}/>
                 </Col>
                 <Col md = "4" xs = "12"> 
-                    <h2>Social Security</h2>
-                    <h5>{props.person.name}</h5>
-                    <h5>{props.person.dob}</h5>
+                    <SS person = {props.ssPerson}/>
                 </Col>
                 <Col md = "4" xs = "12"> 
-                    <h2>Department of State</h2>
-                    <img className='image' src= {props.person.image}></img>
-                    <h5>{props.person.name}</h5>
-                    <h5>{props.person.dl}</h5>
-                    <h5>{props.person.dob}</h5>
-                    <h5>{props.person.passportnumber}</h5>
-                    <h5>{props.person.passportexpiration}</h5>
+                    <DOS person = {props.dosPerson}/>
                 </Col>
 
             </Row>
