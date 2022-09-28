@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import '../App.js';
 import Content from '../Components/Content.js';
-import useFetch from '../useFetch.js';
+import useFetch from '../Hooks/useFetch.js';
 import { validSSN } from '../regex.js';
 import { Button } from "@mui/material";
 import { PatternFormat } from "react-number-format";
@@ -9,9 +9,14 @@ import PersonSearchRoundedIcon from '@mui/icons-material/PersonSearchRounded';
 
 const Home = () => {
     const[num,setNum] = useState("");
-    const[people, setPeople] = useState([]);
-    const[person,setPerson] = useState({})
+    const[dos, setDOS] = useState([]);
+    const[ss, setSS] = useState([]);
+    const[dmv,setDMV] = useState([])
+    const[dosPerson,setDOSPerson] = useState({})
+    const[ssPerson,setSSPerson] = useState({})
+    const[dmvPerson,setDMVPerson] = useState({})
     const [errSSN, setErrSSN] = useState(false);
+    const[match,setMatch] = useState(false)
     const {entities} = useFetch();
     //declaring states
 
@@ -32,23 +37,56 @@ const Home = () => {
 
 
     useEffect( () => {
-        async function getData(){
-          const list = await entities.people.list();
-          setPeople(list.items)
+        async function getDOS(){
+          const list = await entities.DOS.list();
+          setDOS(list.items)
         }
-        getData();
+        getDOS();
+
+        async function getSS(){
+            const list = await entities.SS.list();
+            setSS(list.items)
+        }
+        getSS();
+
+        async function getDMV(){
+            const list = await entities.DMV.list();
+            setDMV(list.items)
+        }
+        getDMV();
       },[])
       //fetches data right when page loads
 
-      const searchForPerson = () => {
-        people.map((data) => {
+      const searchForPersonDMV = () => {
+        dmv.map((data) => {
             if(data.ssn === num) {
-                setPerson(data)
+                setDMVPerson(data)
             }
         })
-        console.log(person)
+      }
+      const searchForPersonDOS = () => {
+        dos.map((data) => {
+            if(data.ssn === num) {
+                setDOSPerson(data)
+            }
+        })
+      }
+      const searchForPersonSS = () => {
+        ss.map((data) => {
+            if(data.ssn === num) {
+                setSSPerson(data)
+            }
+        })
       }
       //search for person based on ssn
+      const check = () => {
+        if(dosPerson.name === dmvPerson.name && dmvPerson.name === ssPerson.name && dosPerson.dob === dmvPerson.dob && dmvPerson.dob === ssPerson.dob){
+            setMatch(true);
+        }else{
+            setMatch(false)
+        }
+        console.log(match)
+      }
     return(
         <div className='home'>
                 <div className='content'>
@@ -67,16 +105,17 @@ const Home = () => {
                             size='large'
                             style={{position: "absolute", borderRadius: "10px",padding: ".5rem",
                                 textTransform: "capitalize"}}
-                            onClick={() => {validate(); searchForPerson()}} 
+                            onClick={() => {validate(); searchForPersonDMV(); searchForPersonDOS(); searchForPersonSS(); check()}} 
                             type='submit'>Search
                         <PersonSearchRoundedIcon/>
                         </Button>
                         
                         {errSSN && <p>SSN is invalid. Please try again.</p>}
-                    
+
                     </form>
+                    <Content dmvPerson = {dmvPerson} ssPerson = {ssPerson} dosPerson = {dosPerson}/>
+                    {match?"MATCH":"NO MATCH"}
                 </div> 
-                <Content person = {person}/>
 
         </div>
     )

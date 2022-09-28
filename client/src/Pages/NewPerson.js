@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import useFetch from '../useFetch.js';
+import useFetch from '../Hooks/useFetch.js';
 import '../App.css';
 import { Button,TextField } from "@mui/material";
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
@@ -53,7 +53,7 @@ const NewPerson = () => {
                     label="Date of Birth"
                     type="date"
                     onChange={(e) => setDob(e.target.value)} required
-                    sx={{ width: 230 }}
+                    sx={{ width: 260 }}
                     InputLabelProps={{
                     shrink: true,
                     }}
@@ -66,7 +66,7 @@ const NewPerson = () => {
                     label="Passport Expiration"
                     type="date"
                     onChange={(e) => setPassportExpir(e.target.value)} required
-                    sx={{ width: 230 }}
+                    sx={{ width: 260 }}
                     InputLabelProps={{
                     shrink: true,
                     }}
