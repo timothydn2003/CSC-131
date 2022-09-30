@@ -17,13 +17,13 @@ const SS = (props) => {
     
     return(
         <div>
-            <h2>Social Security</h2>
+            <h2 className='title'>Social Security</h2>
           {people.map((data) => {
             if(data.ssn === props.num){
                 return (
                     <div className='content'>
-                        <h3>{data.name}</h3>
-                        <h3>{data.dob}</h3>
+                        <h3 className="info">{data.name}</h3>
+                        <h3 className="info">{data.dob}</h3>
                     </div>
                 )
             }
