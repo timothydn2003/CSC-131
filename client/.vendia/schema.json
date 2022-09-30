@@ -2,10 +2,15 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Uni Schema",
   "description": "Empty uni schema",
+  "x-vendia-acls": {
+    "PeopleACL:": {
+      "type": "People"
+    }
+  },
   "type": "object",
   "properties": {
-    "DMV": {
-      "description": "DMV Data",
+    "People": {
+      "description": "List of People in DMV database",
       "type": "array",
       "items": {
         "type": "object",
@@ -28,63 +33,11 @@
             "type": "string"
           },
           "image": {
-            "description": "Image Person",
+            "description": "Image of Person",
             "type": "string",
             "format": "uri"
-          }
-        }
-      }
-    },
-    "SS": {
-      "description": "SS Data",
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "Full Name",
-            "type": "string"
           },
-          "dl": {
-            "description": "Drivers License Number",
-            "type": "string"
-          },
-          "dob": {
-            "description": "Date of Birth",
-            "type": "string",
-            "format": "date"
-          },
-          "ssn": {
-            "description": "Social Security Number",
-            "type": "string"
-          }
-        }
-      }
-    },
-    "DOS": {
-      "description": "DOS Data",
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "Full Name",
-            "type": "string"
-          },
-          "dl": {
-            "description": "Drivers License Number",
-            "type": "string"
-          },
-          "dob": {
-            "description": "Date of Birth",
-            "type": "string",
-            "format": "date"
-          },
-          "ssn": {
-            "description": "Social Security Number",
-            "type": "string"
-          },
-          "image": {
+          "dosImage": {
             "description": "Image of Person",
             "type": "string",
             "format": "uri"

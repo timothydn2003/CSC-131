@@ -196,175 +196,91 @@ enum Vendia_SyncMode {
   ASYNC
 }
 
-input Self_DMV_ConditionInput_ {
+input Self_People_ConditionInput_ {
   dl: Vendia_ModelStringInput_
   dob: Vendia_ModelStringInput_
-  image: Vendia_ModelStringInput_
-  name: Vendia_ModelStringInput_
-  ssn: Vendia_ModelStringInput_
-  _and: [Self_DMV_ConditionInput_]
-  _or: [Self_DMV_ConditionInput_]
-  _not: Self_DMV_ConditionInput_
-}
-
-input Self_DMV_FilterInput_ {
-  dl: Vendia_ModelStringInput_
-  dob: Vendia_ModelStringInput_
-  image: Vendia_ModelStringInput_
-  name: Vendia_ModelStringInput_
-  ssn: Vendia_ModelStringInput_
-  _and: [Self_DMV_FilterInput_]
-  _or: [Self_DMV_FilterInput_]
-  _not: Self_DMV_FilterInput_
-}
-
-input Self_DMV_OrderInput_ {
-  _id: Vendia_ModelSortDirection
-}
-
-type Self_DMV {
-  _id: ID!
-  dl: String
-  dob: String
-  image: String
-  name: String
-  ssn: String
-  _owner: String
-}
-
-type Self_DMV_Partial_ {
-  _id: ID!
-  dl: String
-  dob: String
-  image: String
-  name: String
-  ssn: String
-  _owner: String
-}
-
-union Self_DMV_PartialUnion_ = Self_DMV | Self_DMV_Partial_
-
-type Self_DMV_Result_ {
-  error: String
-  result: Self_DMV
-}
-
-type Self_DMV_Transaction_Result_ {
-  transaction: Vendia_Transaction!
-  result: Self_DMV
-}
-
-type Self_DMV_Delete_Transaction_Result_ {
-  transaction: Vendia_Transaction!
-}
-
-type Self_DMV_Connection_ {
-  _DMVItems: [Self_DMV]
-  nextToken: String
-}
-
-input Self_DMV_Input_ {
-  dl: String
-  dob: String
-  image: String
-  name: String
-  ssn: String
-}
-
-input Self_DMV_UpdateInput_ {
-  dl: String
-  dob: String
-  image: String
-  name: String
-  ssn: String
-}
-
-input Self_DMV_PartialInput_ {
-  dl: String
-  dob: String
-  image: String
-  name: String
-  ssn: String
-}
-
-input Self_DOS_ConditionInput_ {
-  dl: Vendia_ModelStringInput_
-  dob: Vendia_ModelStringInput_
+  dosImage: Vendia_ModelStringInput_
   image: Vendia_ModelStringInput_
   name: Vendia_ModelStringInput_
   passportexpiration: Vendia_ModelStringInput_
   passportnumber: Vendia_ModelStringInput_
   ssn: Vendia_ModelStringInput_
-  _and: [Self_DOS_ConditionInput_]
-  _or: [Self_DOS_ConditionInput_]
-  _not: Self_DOS_ConditionInput_
+  _and: [Self_People_ConditionInput_]
+  _or: [Self_People_ConditionInput_]
+  _not: Self_People_ConditionInput_
 }
 
-input Self_DOS_FilterInput_ {
+input Self_People_FilterInput_ {
   dl: Vendia_ModelStringInput_
   dob: Vendia_ModelStringInput_
+  dosImage: Vendia_ModelStringInput_
   image: Vendia_ModelStringInput_
   name: Vendia_ModelStringInput_
   passportexpiration: Vendia_ModelStringInput_
   passportnumber: Vendia_ModelStringInput_
   ssn: Vendia_ModelStringInput_
-  _and: [Self_DOS_FilterInput_]
-  _or: [Self_DOS_FilterInput_]
-  _not: Self_DOS_FilterInput_
+  _and: [Self_People_FilterInput_]
+  _or: [Self_People_FilterInput_]
+  _not: Self_People_FilterInput_
 }
 
-input Self_DOS_OrderInput_ {
+input Self_People_OrderInput_ {
   _id: Vendia_ModelSortDirection
 }
 
-type Self_DOS {
+type Self_People {
   _id: ID!
   dl: String
   dob: String
+  dosImage: String
   image: String
   name: String
   passportexpiration: String
   passportnumber: String
   ssn: String
+  _acl: [Vendia_Acl!]
   _owner: String
 }
 
-type Self_DOS_Partial_ {
+type Self_People_Partial_ {
   _id: ID!
   dl: String
   dob: String
+  dosImage: String
   image: String
   name: String
   passportexpiration: String
   passportnumber: String
   ssn: String
+  _acl: [Vendia_Acl!]
   _owner: String
 }
 
-union Self_DOS_PartialUnion_ = Self_DOS | Self_DOS_Partial_
+union Self_People_PartialUnion_ = Self_People | Self_People_Partial_
 
-type Self_DOS_Result_ {
+type Self_People_Result_ {
   error: String
-  result: Self_DOS
+  result: Self_People
 }
 
-type Self_DOS_Transaction_Result_ {
+type Self_People_Transaction_Result_ {
   transaction: Vendia_Transaction!
-  result: Self_DOS
+  result: Self_People_PartialUnion_
 }
 
-type Self_DOS_Delete_Transaction_Result_ {
+type Self_People_Delete_Transaction_Result_ {
   transaction: Vendia_Transaction!
 }
 
-type Self_DOS_Connection_ {
-  _DOSItems: [Self_DOS]
+type Self_People_Connection_ {
+  _PeopleItems: [Self_People_PartialUnion_]
   nextToken: String
 }
 
-input Self_DOS_Input_ {
+input Self_People_Input_ {
   dl: String
   dob: String
+  dosImage: String
   image: String
   name: String
   passportexpiration: String
@@ -372,9 +288,10 @@ input Self_DOS_Input_ {
   ssn: String
 }
 
-input Self_DOS_UpdateInput_ {
+input Self_People_UpdateInput_ {
   dl: String
   dob: String
+  dosImage: String
   image: String
   name: String
   passportexpiration: String
@@ -382,97 +299,14 @@ input Self_DOS_UpdateInput_ {
   ssn: String
 }
 
-input Self_DOS_PartialInput_ {
+input Self_People_PartialInput_ {
   dl: String
   dob: String
+  dosImage: String
   image: String
   name: String
   passportexpiration: String
   passportnumber: String
-  ssn: String
-}
-
-input Self_SS_ConditionInput_ {
-  dl: Vendia_ModelStringInput_
-  dob: Vendia_ModelStringInput_
-  name: Vendia_ModelStringInput_
-  ssn: Vendia_ModelStringInput_
-  _and: [Self_SS_ConditionInput_]
-  _or: [Self_SS_ConditionInput_]
-  _not: Self_SS_ConditionInput_
-}
-
-input Self_SS_FilterInput_ {
-  dl: Vendia_ModelStringInput_
-  dob: Vendia_ModelStringInput_
-  name: Vendia_ModelStringInput_
-  ssn: Vendia_ModelStringInput_
-  _and: [Self_SS_FilterInput_]
-  _or: [Self_SS_FilterInput_]
-  _not: Self_SS_FilterInput_
-}
-
-input Self_SS_OrderInput_ {
-  _id: Vendia_ModelSortDirection
-}
-
-type Self_SS {
-  _id: ID!
-  dl: String
-  dob: String
-  name: String
-  ssn: String
-  _owner: String
-}
-
-type Self_SS_Partial_ {
-  _id: ID!
-  dl: String
-  dob: String
-  name: String
-  ssn: String
-  _owner: String
-}
-
-union Self_SS_PartialUnion_ = Self_SS | Self_SS_Partial_
-
-type Self_SS_Result_ {
-  error: String
-  result: Self_SS
-}
-
-type Self_SS_Transaction_Result_ {
-  transaction: Vendia_Transaction!
-  result: Self_SS
-}
-
-type Self_SS_Delete_Transaction_Result_ {
-  transaction: Vendia_Transaction!
-}
-
-type Self_SS_Connection_ {
-  _SSItems: [Self_SS]
-  nextToken: String
-}
-
-input Self_SS_Input_ {
-  dl: String
-  dob: String
-  name: String
-  ssn: String
-}
-
-input Self_SS_UpdateInput_ {
-  dl: String
-  dob: String
-  name: String
-  ssn: String
-}
-
-input Self_SS_PartialInput_ {
-  dl: String
-  dob: String
-  name: String
   ssn: String
 }
 
@@ -2809,15 +2643,9 @@ input Vendia_Contract_InvokeInput_ {
 }
 
 type Query {
-  get_DMV(id: ID!, version: Int, readMode: Vendia_ReadMode = NODE_COMMITTED): Self_DMV
-  list_DMVItems(filter: Self_DMV_FilterInput_, readMode: Vendia_ReadMode = NODE_COMMITTED, order: [Self_DMV_OrderInput_!], limit: Int, nextToken: String): Self_DMV_Connection_
-  list_DMVVersions(id: ID!, limit: Int, nextToken: String): Vendia_Version_Connection_
-  get_DOS(id: ID!, version: Int, readMode: Vendia_ReadMode = NODE_COMMITTED): Self_DOS
-  list_DOSItems(filter: Self_DOS_FilterInput_, readMode: Vendia_ReadMode = NODE_COMMITTED, order: [Self_DOS_OrderInput_!], limit: Int, nextToken: String): Self_DOS_Connection_
-  list_DOSVersions(id: ID!, limit: Int, nextToken: String): Vendia_Version_Connection_
-  get_SS(id: ID!, version: Int, readMode: Vendia_ReadMode = NODE_COMMITTED): Self_SS
-  list_SSItems(filter: Self_SS_FilterInput_, readMode: Vendia_ReadMode = NODE_COMMITTED, order: [Self_SS_OrderInput_!], limit: Int, nextToken: String): Self_SS_Connection_
-  list_SSVersions(id: ID!, limit: Int, nextToken: String): Vendia_Version_Connection_
+  get_People(id: ID!, version: Int, readMode: Vendia_ReadMode = NODE_COMMITTED): Self_People_PartialUnion_
+  list_PeopleItems(filter: Self_People_FilterInput_, readMode: Vendia_ReadMode = NODE_COMMITTED, order: [Self_People_OrderInput_!], limit: Int, nextToken: String): Self_People_Connection_
+  list_PeopleVersions(id: ID!, limit: Int, nextToken: String): Vendia_Version_Connection_
   listVendia_SubscriptionItems(filter: Vendia_Subscription_FilterInput_, order: [Vendia_Subscription_OrderInput_!], limit: Int, nextToken: String): Vendia_Subscription_Connection_
   getVendia_Block(id: ID!): Vendia_Block
   listVendia_BlockItems(filter: Vendia_Block_FilterInput_, order: [Vendia_Block_OrderInput_!], limit: Int, nextToken: String): Vendia_Block_Connection_
@@ -2844,30 +2672,14 @@ type Query {
 }
 
 type Mutation {
-  add_DMV_async(input: Self_DMV_Input_!): Vendia_Transaction_Result_
-  add_DMV(input: Self_DMV_Input_!, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_DMV_Transaction_Result_
-  put_DMV_async(id: ID!, input: Self_DMV_Input_!, condition: Self_DMV_ConditionInput_): Vendia_Transaction_Result_
-  put_DMV(id: ID!, input: Self_DMV_Input_!, condition: Self_DMV_ConditionInput_, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_DMV_Transaction_Result_
-  update_DMV_async(id: ID!, input: Self_DMV_UpdateInput_!, condition: Self_DMV_ConditionInput_): Vendia_Transaction_Result_
-  update_DMV(id: ID!, input: Self_DMV_UpdateInput_!, condition: Self_DMV_ConditionInput_, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_DMV_Transaction_Result_
-  remove_DMV_async(id: ID!, condition: Self_DMV_ConditionInput_): Vendia_Transaction_Result_
-  remove_DMV(id: ID!, condition: Self_DMV_ConditionInput_, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_DMV_Delete_Transaction_Result_
-  add_DOS_async(input: Self_DOS_Input_!): Vendia_Transaction_Result_
-  add_DOS(input: Self_DOS_Input_!, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_DOS_Transaction_Result_
-  put_DOS_async(id: ID!, input: Self_DOS_Input_!, condition: Self_DOS_ConditionInput_): Vendia_Transaction_Result_
-  put_DOS(id: ID!, input: Self_DOS_Input_!, condition: Self_DOS_ConditionInput_, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_DOS_Transaction_Result_
-  update_DOS_async(id: ID!, input: Self_DOS_UpdateInput_!, condition: Self_DOS_ConditionInput_): Vendia_Transaction_Result_
-  update_DOS(id: ID!, input: Self_DOS_UpdateInput_!, condition: Self_DOS_ConditionInput_, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_DOS_Transaction_Result_
-  remove_DOS_async(id: ID!, condition: Self_DOS_ConditionInput_): Vendia_Transaction_Result_
-  remove_DOS(id: ID!, condition: Self_DOS_ConditionInput_, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_DOS_Delete_Transaction_Result_
-  add_SS_async(input: Self_SS_Input_!): Vendia_Transaction_Result_
-  add_SS(input: Self_SS_Input_!, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_SS_Transaction_Result_
-  put_SS_async(id: ID!, input: Self_SS_Input_!, condition: Self_SS_ConditionInput_): Vendia_Transaction_Result_
-  put_SS(id: ID!, input: Self_SS_Input_!, condition: Self_SS_ConditionInput_, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_SS_Transaction_Result_
-  update_SS_async(id: ID!, input: Self_SS_UpdateInput_!, condition: Self_SS_ConditionInput_): Vendia_Transaction_Result_
-  update_SS(id: ID!, input: Self_SS_UpdateInput_!, condition: Self_SS_ConditionInput_, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_SS_Transaction_Result_
-  remove_SS_async(id: ID!, condition: Self_SS_ConditionInput_): Vendia_Transaction_Result_
-  remove_SS(id: ID!, condition: Self_SS_ConditionInput_, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_SS_Delete_Transaction_Result_
+  add_People_async(input: Self_People_Input_!, aclInput: Vendia_Acls_Input_): Vendia_Transaction_Result_
+  add_People(input: Self_People_Input_!, aclInput: Vendia_Acls_Input_, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_People_Transaction_Result_
+  put_People_async(id: ID!, input: Self_People_Input_!, condition: Self_People_ConditionInput_, aclInput: Vendia_Acls_Input_!): Vendia_Transaction_Result_
+  put_People(id: ID!, input: Self_People_Input_!, condition: Self_People_ConditionInput_, aclInput: Vendia_Acls_Input_!, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_People_Transaction_Result_
+  update_People_async(id: ID!, input: Self_People_UpdateInput_!, condition: Self_People_ConditionInput_, aclInput: Vendia_Acls_Input_): Vendia_Transaction_Result_
+  update_People(id: ID!, input: Self_People_UpdateInput_!, condition: Self_People_ConditionInput_, aclInput: Vendia_Acls_Input_, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_People_Transaction_Result_
+  remove_People_async(id: ID!, condition: Self_People_ConditionInput_): Vendia_Transaction_Result_
+  remove_People(id: ID!, condition: Self_People_ConditionInput_, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_People_Delete_Transaction_Result_
   addVendia_File_async(input: Vendia_File_Input_!): Vendia_Transaction_Result_
   addVendia_File(input: Vendia_File_Input_!, syncMode: Vendia_SyncMode!): Vendia_File_Transaction_Result_
   putVendia_File_async(id: ID!, input: Vendia_File_Input_!, condition: Vendia_File_ConditionInput_): Vendia_Transaction_Result_
@@ -2905,18 +2717,10 @@ type Mutation {
 }
 
 type Subscription {
-  onAdd_DMV: Self_DMV_Result_
-  onUpdate_DMV: Self_DMV_Result_
-  onPut_DMV: Self_DMV_Result_
-  onRemove_DMV: Self_DMV_Result_
-  onAdd_DOS: Self_DOS_Result_
-  onUpdate_DOS: Self_DOS_Result_
-  onPut_DOS: Self_DOS_Result_
-  onRemove_DOS: Self_DOS_Result_
-  onAdd_SS: Self_SS_Result_
-  onUpdate_SS: Self_SS_Result_
-  onPut_SS: Self_SS_Result_
-  onRemove_SS: Self_SS_Result_
+  onAdd_People: Self_People_Result_
+  onUpdate_People: Self_People_Result_
+  onPut_People: Self_People_Result_
+  onRemove_People: Self_People_Result_
   onAddVendia_Block: Vendia_Block_Result_
   onUpdateVendia_Block: Vendia_Block_Result_
   onPutVendia_Block: Vendia_Block_Result_

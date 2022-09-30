@@ -3,7 +3,6 @@ import React, { useState} from "react";
 import Brightness7 from '@mui/icons-material/Brightness7'
 import Brightness4 from '@mui/icons-material/Brightness4'
 import { orange,lightBlue,deepOrange,deepPurple, grey } from "@mui/material/colors";
-import NewPerson from "./Pages/NewPerson";
 
 export default function Theme() {
   const [darkMode, setDarkMode] = useState(false);
