@@ -7,10 +7,10 @@ import {Link} from 'react-router-dom'
 import {LinkContainer} from 'react-router-bootstrap'
 import Theme from '../Theme';
 
-function CollapsibleExample() {
+function Navigation() {
   return (
 
-    <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className='nav-bar'>
+    <Navbar fixed = "top" collapseOnSelect expand="lg" bg="white" variant="light" className='nav-bar'>
       <Container >
         <Navbar.Brand href="/"><h3>TravelX</h3></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -33,11 +33,13 @@ function CollapsibleExample() {
               </LinkContainer>
             </NavDropdown>
           </Nav>
+          <Theme/>
         </Navbar.Collapse>
+
       </Container>
-      <Theme/>
+
     </Navbar>
   );
 }
 
-export default CollapsibleExample;
+export default Navigation;
