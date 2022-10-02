@@ -22,8 +22,14 @@ function CollapsibleExample() {
               <Nav.Link>Home</Nav.Link>
             </LinkContainer>
             <NavDropdown align={"end"} title="Edit" id="collasible-nav-dropdown">
-              <LinkContainer to="/addPerson">
-                <NavDropdown.Item>Add a New Person</NavDropdown.Item>
+              <LinkContainer to="/DMV">
+                <NavDropdown.Item>Department of Motor Vehicles</NavDropdown.Item>
+              </LinkContainer>
+              <LinkContainer to="/SocialSecurity">
+                <NavDropdown.Item>Social Security</NavDropdown.Item>
+              </LinkContainer>
+              <LinkContainer to="/DepartmentOfState">
+                <NavDropdown.Item>Department of State</NavDropdown.Item>
               </LinkContainer>
             </NavDropdown>
           </Nav>
