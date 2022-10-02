@@ -23,7 +23,7 @@ const DMV = (props) => {
                 if(data.ssn === props.num){
                     return(
                         <div className="content">
-                            <img className="image" src= {data.image}></img>
+                            <img className="image" src= {data.image} alt = 'DMV Photo'></img>
                             <h3 className="info">{data.name}</h3>
                             <h3 className="info">{data.dl}</h3>
                             <h3 className="info">{data.dob}</h3>

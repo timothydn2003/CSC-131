@@ -22,7 +22,7 @@ const DOS = (props) => {
             if(data.ssn === props.num){
                 return(
                     <div className='content'>
-                        <img className='image' src= {data.dosImage}></img>
+                        <img className='image' src= {data.dosImage} alt = "Department of State Photo"></img>
                         <h3 className="info">{data.name}</h3>
                         <h3 className="info">{data.dob}</h3>
                         <h3 className="info">{data.passportnumber}</h3>
