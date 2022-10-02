@@ -6,6 +6,7 @@ import Login from './Pages/Login';
 import DMVPage from './Pages/Departments/DMVPage';
 import SSPage from './Pages/Departments/SSPage';
 import DOSPage from './Pages/Departments/DOSPage';
+import UpdateDMVPage from './Pages/Departments/UpdateDMVPage';
 function App() {
   return (
     <div className="App">
@@ -15,6 +16,7 @@ function App() {
           <Route path={'/'} element = {<Home />}/>
           <Route path = {'/login'} element = {<Login />}/>
           <Route path = {'/DMV'} element = {<DMVPage />}/>
+          <Route path = {'/UpdateDMV'} element = {<UpdateDMVPage />}/>
           <Route path = {'/SocialSecurity'} element = {<SSPage/>}/>
           <Route path = {'/DepartmentOfState'} element = {<DOSPage />}/>
 
