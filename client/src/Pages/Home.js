@@ -1,23 +1,22 @@
 import { useState, useEffect } from 'react'
 import '../App.js';
-import Content from '../Components/Content.js';
-import useFetch from '../Hooks/useFetch.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 import { validSSN } from '../regex.js';
 import { Button } from "@mui/material";
 import { PatternFormat } from "react-number-format";
 import PersonSearchRoundedIcon from '@mui/icons-material/PersonSearchRounded';
+import DMV from '../Components/DMV.js';
+import DOS from '../Components/DOS.js';
+import SS from '../Components/SS.js';
 
 const Home = () => {
     const[num,setNum] = useState("");
-    const[dos, setDOS] = useState([]);
-    const[ss, setSS] = useState([]);
-    const[dmv,setDMV] = useState([])
-    const[dosPerson,setDOSPerson] = useState({})
-    const[ssPerson,setSSPerson] = useState({})
-    const[dmvPerson,setDMVPerson] = useState({})
+    const[ssn,setSSN] = useState("");
     const [errSSN, setErrSSN] = useState(false);
     const[match,setMatch] = useState(false)
-    const {entities} = useFetch();
     //declaring states
 
     const validate = () => {
@@ -34,87 +33,61 @@ const Home = () => {
         event.preventDefault();
     }
     //prevent page from refreshing on form submit
-
-
-    useEffect( () => {
-        async function getDOS(){
-          const list = await entities.DOS.list();
-          setDOS(list.items)
-        }
-        getDOS();
-
-        async function getSS(){
-            const list = await entities.SS.list();
-            setSS(list.items)
-        }
-        getSS();
-
-        async function getDMV(){
-            const list = await entities.DMV.list();
-            setDMV(list.items)
-        }
-        getDMV();
-      },[])
-      //fetches data right when page loads
-
-      const searchForPersonDMV = () => {
-        dmv.map((data) => {
-            if(data.ssn === num) {
-                setDMVPerson(data)
-            }
-        })
-      }
-      const searchForPersonDOS = () => {
-        dos.map((data) => {
-            if(data.ssn === num) {
-                setDOSPerson(data)
-            }
-        })
-      }
-      const searchForPersonSS = () => {
-        ss.map((data) => {
-            if(data.ssn === num) {
-                setSSPerson(data)
-            }
-        })
-      }
-      //search for person based on ssn
-      const check = () => {
-        if(dosPerson.name === dmvPerson.name && dmvPerson.name === ssPerson.name && dosPerson.dob === dmvPerson.dob && dmvPerson.dob === ssPerson.dob){
-            setMatch(true);
-        }else{
-            setMatch(false)
-        }
-        console.log(match)
-      }
+    const set = () => {
+        setSSN(num)
+    }
     return(
         <div className='home'>
                 <div className='content'>
-                    <form className='ssn-form' onSubmit={stop}>
-                        <label>Enter SSN</label><br/>
-                       <PatternFormat className= 'ssn-input'
-                            format="###-##-####" 
-                            placeholder='xxx-xx-xxxx'
-                            onChange={(e) => setNum(e.target.value)}
-                        /> 
-                        <Button 
-                            disableElevation
-                            id='submit-btn' 
-                            variant='contained'
-                            color='success'
-                            size='large'
-                            style={{position: "absolute", borderRadius: "10px",padding: ".5rem",
-                                textTransform: "capitalize"}}
-                            onClick={() => {validate(); searchForPersonDMV(); searchForPersonDOS(); searchForPersonSS(); check()}} 
-                            type='submit'>Search
-                        <PersonSearchRoundedIcon/>
-                        </Button>
-                        
-                        {errSSN && <p>SSN is invalid. Please try again.</p>}
+                    <Container>
+                        <Row>
+                            <Col>
+                            <form className='ssn-form' onSubmit={stop}>
+                                <label>Enter SSN</label><br/>
+                                <PatternFormat className= 'ssn-input'
+                                    format="###-##-####" 
+                                    placeholder='xxx-xx-xxxx'
+                                    onChange={(e) => setNum(e.target.value)}
+                                /> 
+                                <Button 
+                                    disableElevation
+                                    id='submit-btn' 
+                                    variant='contained'
+                                    color='success'
+                                    size='large'
+                                    style={{position: "absolute", borderRadius: "10px",padding: ".5rem",
+                                        textTransform: "capitalize"}}
+                                    onClick={() => {validate(); set()}} 
+                                    type='submit'>Search
+                                <PersonSearchRoundedIcon/>
+                                </Button>
+                                
+                                {errSSN && <p>SSN is invalid. Please try again.</p>}
+                            </form>
+                            </Col>
+                        </Row>
+                    </Container>
+                    <div className='data'>
+                        <Container>
+                            <Row>
+                                <Col md = "4" xs = "12">
+                                    <DMV num = {ssn}/>
+                                </Col>
+                                <Col md = "4" xs = "12"> 
+                                    <SS num = {ssn}/>
+                                </Col>
+                                <Col md = "4" xs = "12"> 
+                                    <DOS num = {ssn}/>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    {match?"MATCH":"NO MATCH"}
+                                </Col>
+                            </Row>
+                        </Container>
+                    </div>
 
-                    </form>
-                    <Content dmvPerson = {dmvPerson} ssPerson = {ssPerson} dosPerson = {dosPerson}/>
-                    {match?"MATCH":"NO MATCH"}
                 </div> 
 
         </div>
