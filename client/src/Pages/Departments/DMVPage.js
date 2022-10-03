@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import Row from 'react-bootstrap/esm/Row';
 import useDMV from '../../Hooks/useDMV'
+import Row from 'react-bootstrap/esm/Row';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/esm/Container';
 import Col from 'react-bootstrap/Col';
@@ -42,12 +42,11 @@ const DMVPage = () => {
         return () => unsubscribe();
     },[])
     return(
-        <div className='dmv'>
+        <div className='dmvForm'>
           <Container>
            <div className='add'>
            <form onSubmit={stop}>
                 <div className='header'>
-
                 <h3>Add a New Person</h3>
                 <Link to={'/UpdateDMV'}>
                    <Button variant='outlined' style={{fontSize: '10px'}}>Update a Person</Button>
@@ -92,7 +91,7 @@ const DMVPage = () => {
                         style={{position: "absolute", borderRadius: "10px",padding: ".5rem",
                                 textTransform: "capitalize"}}
                         onClick={addPerson} 
-                        type='submit'>Add New Person
+                        type='submit'>Add Person
                         <PersonAddIcon/>
                         </Button>
                     </Col>

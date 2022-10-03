@@ -36,7 +36,7 @@ const SSPage = () => {
 },[])
 
     return(
-        <div className='ss'>
+        <div className='ssForm'>
             <form onSubmit={stop}>
                 <h3>Add a New Person</h3>
                 <Row>
@@ -70,7 +70,7 @@ const SSPage = () => {
                         style={{position: "absolute", borderRadius: "10px",padding: ".5rem",
                                 textTransform: "capitalize"}}
                         onClick={addPerson} 
-                        type='submit'>Add New Person
+                        type='submit'>Add Person
                         <PersonAddIcon/>
                         </Button>
                     </Col>

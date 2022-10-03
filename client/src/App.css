@@ -77,14 +77,14 @@ label{
 .login-form h4{
   margin-bottom: 20px;
 }
-.ss{
+.ssForm{
   width: 500px;
   margin-left: auto;
   margin-right: auto;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin-top: 30vh;
 }
-.ss form{
+.ssForm form{
   padding: 2rem;
 }
 .MuiInputBase-root{
@@ -92,7 +92,7 @@ label{
   margin-bottom: 20px;
 
 }
-.ss h3{
+.ssForm h3{
   margin-bottom: 20px;
 }
 .add{
@@ -116,6 +116,44 @@ label{
 .updateDMV{
   margin: 20vh auto 0 auto;
   width: 350px;
+}
+.updateDMV a{
+  text-decoration: none;
+}
+.updateDMV-form{
+  width: 500px;
+  height: 200px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 2rem;
+  margin: 30px auto 0 auto;
+}
+.updateDMV-form span{
+  font-size: 20px;
+}
+.dosForm{
+  width: 500px;
+  height: 400px;
+  margin: 20vh auto 0 auto;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 2rem;
+}
+.dosForm h3{
+  margin-bottom: 20px;
+  display: inline;
+}
+.updateDOS{
+  margin-top: 20vh;
+}
+.updateDOS form{
+  width: 400px;
+  margin: 0 auto 0 auto;
+}
+.updateDOS-form{
+  width: 500px;
+  height: 250px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 2rem;
+  margin: 30px auto 0 auto;
 }
 @media only screen and (max-width:767px){
   .ss{
