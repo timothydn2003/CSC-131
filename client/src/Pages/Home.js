@@ -1,18 +1,22 @@
 import { useState, useEffect } from 'react'
 import '../App.js';
-import Content from '../Components/Content.js';
-import useFetch from '../useFetch.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 import { validSSN } from '../regex.js';
 import { Button } from "@mui/material";
 import { PatternFormat } from "react-number-format";
 import PersonSearchRoundedIcon from '@mui/icons-material/PersonSearchRounded';
+import DMV from '../Components/DMV.js';
+import DOS from '../Components/DOS.js';
+import SS from '../Components/SS.js';
 
 const Home = () => {
     const[num,setNum] = useState("");
-    const[people, setPeople] = useState([]);
-    const[person,setPerson] = useState({})
+    const[ssn,setSSN] = useState("");
     const [errSSN, setErrSSN] = useState(false);
-    const {entities} = useFetch();
+    const[match,setMatch] = useState(false)
     //declaring states
 
     const validate = () => {
@@ -29,54 +33,62 @@ const Home = () => {
         event.preventDefault();
     }
     //prevent page from refreshing on form submit
-
-
-    useEffect( () => {
-        async function getData(){
-          const list = await entities.people.list();
-          setPeople(list.items)
-        }
-        getData();
-      },[])
-      //fetches data right when page loads
-
-      const searchForPerson = () => {
-        people.map((data) => {
-            if(data.ssn === num) {
-                setPerson(data)
-            }
-        })
-        console.log(person)
-      }
-      //search for person based on ssn
+    const set = () => {
+        setSSN(num)
+    }
     return(
         <div className='home'>
                 <div className='content'>
-                    <form className='ssn-form' onSubmit={stop}>
-                        <label>Enter SSN</label><br/>
-                       <PatternFormat className= 'ssn-input'
-                            format="###-##-####" 
-                            placeholder='xxx-xx-xxxx'
-                            onChange={(e) => setNum(e.target.value)}
-                        /> 
-                        <Button 
-                            disableElevation
-                            id='submit-btn' 
-                            variant='contained'
-                            color='success'
-                            size='large'
-                            style={{position: "absolute", borderRadius: "10px",padding: ".5rem",
-                                textTransform: "capitalize"}}
-                            onClick={() => {validate(); searchForPerson()}} 
-                            type='submit'>Search
-                        <PersonSearchRoundedIcon/>
-                        </Button>
-                        
-                        {errSSN && <p>SSN is invalid. Please try again.</p>}
-                    
-                    </form>
+                    <Container>
+                        <Row>
+                            <Col>
+                            <form className='ssn-form' onSubmit={stop}>
+                                <label>Enter SSN</label><br/>
+                                <PatternFormat className= 'ssn-input'
+                                    format="###-##-####" 
+                                    placeholder='xxx-xx-xxxx'
+                                    onChange={(e) => setNum(e.target.value)}
+                                /> 
+                                <Button 
+                                    disableElevation
+                                    id='submit-btn' 
+                                    variant='contained'
+                                    color='success'
+                                    size='large'
+                                    style={{position: "absolute", borderRadius: "10px",padding: ".5rem",
+                                        textTransform: "capitalize"}}
+                                    onClick={() => {validate(); set()}} 
+                                    type='submit'>Search
+                                <PersonSearchRoundedIcon/>
+                                </Button>
+                                
+                                {errSSN && <p>SSN is invalid. Please try again.</p>}
+                            </form>
+                            </Col>
+                        </Row>
+                    </Container>
+                    <div className='data'>
+                        <Container>
+                            <Row>
+                                <Col md = "4" xs = "12">
+                                    <DMV num = {ssn}/>
+                                </Col>
+                                <Col md = "4" xs = "12"> 
+                                    <SS num = {ssn}/>
+                                </Col>
+                                <Col md = "4" xs = "12"> 
+                                    <DOS num = {ssn}/>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    {match?"MATCH":"NO MATCH"}
+                                </Col>
+                            </Row>
+                        </Container>
+                    </div>
+
                 </div> 
-                <Content person = {person}/>
 
         </div>
     )

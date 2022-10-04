@@ -1,7 +1,12 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "DMV",
-  "description": "DMV Schema",
+  "title": "Uni Schema",
+  "description": "Empty uni schema",
+  "x-vendia-acls": {
+    "PeopleACL:": {
+      "type": "People"
+    }
+  },
   "type": "object",
   "properties": {
     "People": {
@@ -28,6 +33,11 @@
             "type": "string"
           },
           "image": {
+            "description": "Image of Person",
+            "type": "string",
+            "format": "uri"
+          },
+          "dosImage": {
             "description": "Image of Person",
             "type": "string",
             "format": "uri"

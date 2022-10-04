@@ -199,6 +199,7 @@ enum Vendia_SyncMode {
 input Self_People_ConditionInput_ {
   dl: Vendia_ModelStringInput_
   dob: Vendia_ModelStringInput_
+  dosImage: Vendia_ModelStringInput_
   image: Vendia_ModelStringInput_
   name: Vendia_ModelStringInput_
   passportexpiration: Vendia_ModelStringInput_
@@ -212,6 +213,7 @@ input Self_People_ConditionInput_ {
 input Self_People_FilterInput_ {
   dl: Vendia_ModelStringInput_
   dob: Vendia_ModelStringInput_
+  dosImage: Vendia_ModelStringInput_
   image: Vendia_ModelStringInput_
   name: Vendia_ModelStringInput_
   passportexpiration: Vendia_ModelStringInput_
@@ -230,11 +232,13 @@ type Self_People {
   _id: ID!
   dl: String
   dob: String
+  dosImage: String
   image: String
   name: String
   passportexpiration: String
   passportnumber: String
   ssn: String
+  _acl: [Vendia_Acl!]
   _owner: String
 }
 
@@ -242,11 +246,13 @@ type Self_People_Partial_ {
   _id: ID!
   dl: String
   dob: String
+  dosImage: String
   image: String
   name: String
   passportexpiration: String
   passportnumber: String
   ssn: String
+  _acl: [Vendia_Acl!]
   _owner: String
 }
 
@@ -259,7 +265,7 @@ type Self_People_Result_ {
 
 type Self_People_Transaction_Result_ {
   transaction: Vendia_Transaction!
-  result: Self_People
+  result: Self_People_PartialUnion_
 }
 
 type Self_People_Delete_Transaction_Result_ {
@@ -267,13 +273,14 @@ type Self_People_Delete_Transaction_Result_ {
 }
 
 type Self_People_Connection_ {
-  _PeopleItems: [Self_People]
+  _PeopleItems: [Self_People_PartialUnion_]
   nextToken: String
 }
 
 input Self_People_Input_ {
   dl: String
   dob: String
+  dosImage: String
   image: String
   name: String
   passportexpiration: String
@@ -284,6 +291,7 @@ input Self_People_Input_ {
 input Self_People_UpdateInput_ {
   dl: String
   dob: String
+  dosImage: String
   image: String
   name: String
   passportexpiration: String
@@ -294,6 +302,7 @@ input Self_People_UpdateInput_ {
 input Self_People_PartialInput_ {
   dl: String
   dob: String
+  dosImage: String
   image: String
   name: String
   passportexpiration: String
@@ -2634,7 +2643,7 @@ input Vendia_Contract_InvokeInput_ {
 }
 
 type Query {
-  get_People(id: ID!, version: Int, readMode: Vendia_ReadMode = NODE_COMMITTED): Self_People
+  get_People(id: ID!, version: Int, readMode: Vendia_ReadMode = NODE_COMMITTED): Self_People_PartialUnion_
   list_PeopleItems(filter: Self_People_FilterInput_, readMode: Vendia_ReadMode = NODE_COMMITTED, order: [Self_People_OrderInput_!], limit: Int, nextToken: String): Self_People_Connection_
   list_PeopleVersions(id: ID!, limit: Int, nextToken: String): Vendia_Version_Connection_
   listVendia_SubscriptionItems(filter: Vendia_Subscription_FilterInput_, order: [Vendia_Subscription_OrderInput_!], limit: Int, nextToken: String): Vendia_Subscription_Connection_
@@ -2663,12 +2672,12 @@ type Query {
 }
 
 type Mutation {
-  add_People_async(input: Self_People_Input_!): Vendia_Transaction_Result_
-  add_People(input: Self_People_Input_!, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_People_Transaction_Result_
-  put_People_async(id: ID!, input: Self_People_Input_!, condition: Self_People_ConditionInput_): Vendia_Transaction_Result_
-  put_People(id: ID!, input: Self_People_Input_!, condition: Self_People_ConditionInput_, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_People_Transaction_Result_
-  update_People_async(id: ID!, input: Self_People_UpdateInput_!, condition: Self_People_ConditionInput_): Vendia_Transaction_Result_
-  update_People(id: ID!, input: Self_People_UpdateInput_!, condition: Self_People_ConditionInput_, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_People_Transaction_Result_
+  add_People_async(input: Self_People_Input_!, aclInput: Vendia_Acls_Input_): Vendia_Transaction_Result_
+  add_People(input: Self_People_Input_!, aclInput: Vendia_Acls_Input_, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_People_Transaction_Result_
+  put_People_async(id: ID!, input: Self_People_Input_!, condition: Self_People_ConditionInput_, aclInput: Vendia_Acls_Input_!): Vendia_Transaction_Result_
+  put_People(id: ID!, input: Self_People_Input_!, condition: Self_People_ConditionInput_, aclInput: Vendia_Acls_Input_!, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_People_Transaction_Result_
+  update_People_async(id: ID!, input: Self_People_UpdateInput_!, condition: Self_People_ConditionInput_, aclInput: Vendia_Acls_Input_): Vendia_Transaction_Result_
+  update_People(id: ID!, input: Self_People_UpdateInput_!, condition: Self_People_ConditionInput_, aclInput: Vendia_Acls_Input_, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_People_Transaction_Result_
   remove_People_async(id: ID!, condition: Self_People_ConditionInput_): Vendia_Transaction_Result_
   remove_People(id: ID!, condition: Self_People_ConditionInput_, syncMode: Vendia_SyncMode = NODE_COMMITTED): Self_People_Delete_Transaction_Result_
   addVendia_File_async(input: Vendia_File_Input_!): Vendia_Transaction_Result_
@@ -2703,6 +2712,7 @@ type Mutation {
   removeVendia_JwtAuthentication(id: ID!, condition: Vendia_JwtAuthentication_ConditionInput_, syncMode: Vendia_SyncMode!): Vendia_JwtAuthentication_Delete_Transaction_Result_
   updateVendia_Settings_async(input: Vendia_Settings_UpdateInput_!, condition: Vendia_Settings_ConditionInput_): Vendia_Transaction_Result_
   updateVendia_Settings(input: Vendia_Settings_UpdateInput_!, condition: Vendia_Settings_ConditionInput_, syncMode: Vendia_SyncMode!): Vendia_Settings_Transaction_Result_
+  invokeVendia_Contract(id: ID!, revisionId: String, input: Vendia_Contract_InvokeInput_, syncMode: Vendia_SyncMode!): Vendia_Contract_Transaction_Result_
   invokeVendia_Contract_async(id: ID!, revisionId: String, input: Vendia_Contract_InvokeInput_): Vendia_Transaction_Result_
 }
 
