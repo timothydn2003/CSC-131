@@ -1,6 +1,6 @@
 import useDMV from '../../Hooks/useDMV'
 import { useState,useEffect } from 'react'
-import { Button, TextField } from '@mui/material';
+import { Button, Paper, TextField} from '@mui/material';
 import '../../App.css'
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -49,13 +49,17 @@ const UpdateDMVPage = () => {
     }
     return(
         <div className='updateDMV'>
+            <Paper style={{width: "420px", padding: ".8rem", height: "200px"}}>
+            <div>
+            <h3>Update a New Person</h3>
             <Link to={'/DMV'}>
-                <Button variant='outlined' style={{fontSize: '10px'}}>Add a New Person</Button>
+                <Button variant='outlined' style={{fontSize: '10px'}}>Add New Person</Button>
             </Link>
+            </div>
             <form onSubmit={stop}>
                 <Row>
                     <Col md = '6'>
-                        <TextField id="filled-basic" label="Name" variant="filled" onChange={(e) => setName(e.target.value)} required/>
+                        <TextField id="filled-basic" label="Name" variant="filled" onChange={(e) => setName(e.target.value)} style={{top: "30px"}}required/>
                     </Col>
                     <Col md = '6'>
                     <Button 
@@ -65,7 +69,7 @@ const UpdateDMVPage = () => {
                         color='success'
                         size='large'
                         style={{position: "absolute", borderRadius: "10px",padding: ".5rem",
-                                textTransform: "capitalize"}}                        
+                                textTransform: "capitalize", top: "310px"}}                        
                         onClick = {findPerson}
                         type='submit'> Search for Person
 
@@ -104,6 +108,7 @@ const UpdateDMVPage = () => {
                 </div> :
                 ""
                 }
+            </Paper>
         </div>
     )
 }
