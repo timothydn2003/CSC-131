@@ -1,6 +1,7 @@
 import useDMV from '../../Hooks/useDMV'
 import { useState,useEffect } from 'react'
-import { Button, Paper, TextField} from '@mui/material';
+import { Button, Paper, TextField, Modal} from '@mui/material';
+import Box from '@mui/material/Box';
 import '../../App.css'
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,7 +19,21 @@ const UpdateDMVPage = () => {
     const[image,setImage] = useState('')
     const[show,setShow] = useState(false)
     const{entities} = useDMV();
+    const handleOpen = () => setShow(true)
+    const handleClose = () => setShow(false)
 
+    const style = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 570,
+        bgcolor: 'background.paper',
+        border: '2px solid #000',
+        boxShadow: 24,
+        p: 4,
+      };
+      //styling for modal
     useEffect(() => {
         async function getDMV(){
             const response = await entities.people.list();
@@ -26,17 +41,20 @@ const UpdateDMVPage = () => {
         }
         getDMV()
     })
+    //get list of people from database when page loads
     const stop = (event) => {
         event.preventDefault();
     }
+    //prevents page from loading on form submit
     const findPerson = () =>{
         people.map((data) => {
             if(data.name === name){
                 setPerson(data)
-                setShow(true)
+                handleOpen()
             }
         })
     }
+    //searches for person in database
     const updatePerson = async() => {
         const response = await entities.people.update({
             _id: person._id,
@@ -44,24 +62,26 @@ const UpdateDMVPage = () => {
             dl: dl
         })
         entities.people.onUpdate((data) => {
-            alert(`An existing product named ${data.result.name} has been updated!`);
+            alert(`${person.name} has been updated!`);
           });
     }
+    //updates person in database
     return(
         <div className='updateDMV'>
             <Paper style={{width: "420px", padding: ".8rem", height: "200px"}}>
-            <div>
-            <h3>Update a New Person</h3>
-            <Link to={'/DMV'}>
-                <Button variant='outlined' style={{fontSize: '10px'}}>Add New Person</Button>
-            </Link>
-            </div>
+            
             <form onSubmit={stop}>
+                <div className='header'>
+                    <h3>Update a New Person</h3>
+                    <Link to={'/DMV'}>
+                        <Button variant='outlined' style={{fontSize: '10px', right:"20px"}}>Add New Person</Button>
+                    </Link>
+                </div>
                 <Row>
-                    <Col md = '6'>
-                        <TextField id="filled-basic" label="Name" variant="filled" onChange={(e) => setName(e.target.value)} style={{top: "30px"}}required/>
+                    <Col md = '6' xs = '12'>
+                        <TextField id="filled-basic" label="Name" variant="filled" onChange={(e) => setName(e.target.value)} required/>
                     </Col>
-                    <Col md = '6'>
+                    <Col md = '6' xs = '12'>
                     <Button 
                         disableElevation
                         id='submit-btn' 
@@ -69,7 +89,7 @@ const UpdateDMVPage = () => {
                         color='success'
                         size='large'
                         style={{position: "absolute", borderRadius: "10px",padding: ".5rem",
-                                textTransform: "capitalize", top: "310px"}}                        
+                                textTransform: "capitalize"}}                        
                         onClick = {findPerson}
                         type='submit'> Search for Person
 
@@ -78,7 +98,13 @@ const UpdateDMVPage = () => {
                     </Col>
                 </Row>
             </form>
-                {show? <div className='updateDMV-form'>
+            <Modal
+                open={show}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+                ><Box sx={style}>
+                <div className='updateDMV-form'>
                     <form onSubmit={stop}>
                         <h3>Update: <span>{person.name}</span></h3>
                         <Row>
@@ -105,9 +131,10 @@ const UpdateDMVPage = () => {
                             </Col>
                         </Row>
                     </form>
-                </div> :
-                ""
-                }
+                </div>
+                </Box>
+            </Modal>
+        
             </Paper>
         </div>
     )

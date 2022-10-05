@@ -122,9 +122,10 @@ label{
   width: 500px;
 }
 .updateDMV{
-  margin: 20vh auto 0 auto;
+  margin: 30vh auto 0 auto;
   width: 424px;
   border: 2px solid grey;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 }
 .updateDMV a{
@@ -133,11 +134,8 @@ label{
 .updateDMV-form{
   width: 500px;
   height: 200px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 2rem;
+  padding: 1rem;
   margin: 30px auto 0 auto;
-  
-
 }
 .updateDMV-form span{
   font-size: 20px;
@@ -156,9 +154,10 @@ label{
   display: inline;
 }
 .updateDOS{
-  margin: 20vh auto 0 auto;
+  margin: 30vh auto 0 auto;
   width: 424px;
   border: 2px solid grey;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 }
 .updateDOS form{
@@ -168,10 +167,9 @@ label{
 
 .updateDOS-form{
   width: 500px;
-  height: 250px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 2rem;
-  margin: 30px auto 0 auto;
+  height: 200px;
+  padding: 1rem;
+  margin: 10px auto 0 auto;
 }
 @media only screen and (max-width:767px){
   .ss{
