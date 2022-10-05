@@ -31,9 +31,37 @@ const DMVPage = () => {
              dl:dl
         },
         {
+            aclInput:{
+                acl: [
+                    {
+                        principal: {
+                            nodes: ['*'],
+                        },
+                        path: "dob",
+                        operations: ['READ'],
+                    },
+                    {
+                        principal:{
+                            nodes:['*'],
+                        },
+                        path: 'image',
+                        operations: ['READ']
+                    },
+                    {
+                        principal:{
+                            nodes:['*'],
+                        },
+                        path: 'dl',
+                        operations: ['READ']
+                    },
+                ],
+            },
+        },
+        {
             syncMode: 'ASYNC'
-        })
-    }
+        },
+    )
+}
     
     useEffect(() => {
         const unsubscribe = entities.people.onAdd((data) => {

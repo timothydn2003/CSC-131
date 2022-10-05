@@ -22,11 +22,25 @@ const SSPage = () => {
             name:name,
             ssn:ssn,
             dob:dob
-       },
-       {
-           syncMode: 'ASYNC'
-       })
-   }
+        },
+        {
+        aclInput:{
+            acl: [
+                {
+                    principal: {
+                        nodes: ['*'],
+                    },
+                    path: "dob",
+                    operations: ['READ'],
+                },
+            ],
+        },
+    },
+    {
+        syncMode: 'ASYNC'
+     },
+    )
+}
 
    useEffect(() => {
     const unsubscribe = entities.people.onAdd((data) => {
@@ -80,7 +94,6 @@ const SSPage = () => {
             </form>
             </div>
             </Paper>
-            <h1>{name}</h1>
         </div>
     )
 }
