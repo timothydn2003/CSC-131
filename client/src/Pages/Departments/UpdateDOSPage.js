@@ -39,12 +39,12 @@ const UpdateDOSPage = () => {
         event.preventDefault();
     }
     useEffect(() => {
-        async function getDMV(){
+        async function getDOS(){
             const response = await entities.people.list();
             setPeople(response.items)
         }
-        getDMV()
-    })
+        getDOS()
+    },[])
     const findPerson = () =>{
         people.map((data) => {
             if(data.name === name){
