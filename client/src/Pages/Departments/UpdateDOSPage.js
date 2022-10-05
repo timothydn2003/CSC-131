@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react";
 import useDOS from "../../Hooks/useDOS"
 import { Link } from "react-router-dom";
-import { Button, TextField } from '@mui/material';
+import { Button, Paper, TextField } from '@mui/material';
 import Row from 'react-bootstrap/esm/Row';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/esm/Container';
@@ -50,10 +50,14 @@ const UpdateDOSPage = () => {
     }
     return(
         <div className="updateDOS">
+        <Paper style={{width: "420px", padding: ".8rem", height: "200px"}}>  
             <form onSubmit={stop}>
+             <div className='header'>  
+            <h3>Update a New Person</h3> 
             <Link to={'/DepartmentOfState'}>
-                <Button>Add Person</Button>
+            <Button variant='outlined' style={{fontSize: '10px', right:"20px"}}>Add New Person</Button>
             </Link>
+            </div>
                 <Row>
                     <Col md = '6'>
                         <TextField id="filled-basic" label="Name" variant="filled" onChange={(e) => setName(e.target.value)} required/>
@@ -66,7 +70,7 @@ const UpdateDOSPage = () => {
                         color='success'
                         size='large'
                         style={{position: "absolute", borderRadius: "10px",padding: ".5rem",
-                                textTransform: "capitalize"}}                        
+                                textTransform: "capitalize",top: "297px"}}                        
                         onClick = {findPerson}
                         type='submit'> Search for Person
 
@@ -116,7 +120,9 @@ const UpdateDOSPage = () => {
                     </form>
                 </div> :
                 ""
-                }
+                } 
+                
+                </Paper>
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import useDOS from "../../Hooks/useDOS"
 import { useState,useEffect} from 'react'
 import { Link } from "react-router-dom";
-import { Button, TextField } from '@mui/material';
+import { Button, Paper, TextField } from '@mui/material';
 import Row from 'react-bootstrap/esm/Row';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/esm/Container';
@@ -43,6 +43,7 @@ const DOSPage = () => {
     },[])
 
     return(
+        <Paper style={{width: "500px",  margin: "20vh auto 0 auto"}}>
         <div className="dosForm">
             <form onSubmit={stop}>
                 <div className="header">
@@ -111,6 +112,7 @@ const DOSPage = () => {
                 </Row>
             </form>
         </div>
+        </Paper>
     )
 }
 export default DOSPage
