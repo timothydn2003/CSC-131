@@ -29,9 +29,44 @@ const DOSPage = () => {
             passportexpiration: passportExpir
        },
        {
-           syncMode: 'ASYNC'
-       })
-    }
+        aclInput:{
+            acl: [
+                {
+                    principal: {
+                        nodes: ['*'],
+                    },
+                    path: "dob",
+                    operations: ['READ'],
+                },
+                {
+                    principal:{
+                        nodes:['*'],
+                    },
+                    path: 'dosImage',
+                    operations: ['READ']
+                },
+                {
+                    principal:{
+                        nodes:['*'],
+                    },
+                    path: 'passportnumber',
+                    operations: ['READ']
+                },
+                {
+                    principal:{
+                        nodes:['*'],
+                    },
+                    path: 'passportexpiration',
+                    operations: ['READ']
+                },
+            ],
+        },
+    },
+    {
+        syncMode: 'ASYNC'
+     },
+    )
+}
     const stop = (event) => {
         event.preventDefault();
     }
