@@ -82,7 +82,7 @@ const Home = () => {
                             </Row>
                             <Row>
                                 <Col>
-                                    {match?"MATCH":"NO MATCH"}
+                                    
                                 </Col>
                             </Row>
                         </Container>

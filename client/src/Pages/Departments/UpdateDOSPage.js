@@ -1,7 +1,8 @@
 import { useState,useEffect } from "react";
 import useDOS from "../../Hooks/useDOS"
 import { Link } from "react-router-dom";
-import { Button, Paper, TextField } from '@mui/material';
+import { Button, Paper, TextField, Modal } from '@mui/material';
+import Box from '@mui/material/Box';
 import Row from 'react-bootstrap/esm/Row';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/esm/Container';
@@ -18,6 +19,21 @@ const UpdateDOSPage = () => {
     const[passport,setPassport] = useState('')
     const[passportExpir,setPassportExpir] = useState('')
     const[image,setImage] = useState('')
+    const handleOpen = () => setShow(true)
+    const handleClose = () => setShow(false)
+
+    const style = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 550,
+        bgcolor: 'background.paper',
+        border: '2px solid #000',
+        boxShadow: 24,
+        p: 4,
+      };
+      //styling for modal
 
     const stop = (event) => {
         event.preventDefault();
@@ -33,7 +49,7 @@ const UpdateDOSPage = () => {
         people.map((data) => {
             if(data.name === name){
                 setPerson(data)
-                setShow(true)
+                handleOpen()
             }
         })
     }
@@ -45,9 +61,10 @@ const UpdateDOSPage = () => {
             passportexpiration:passportExpir
         })
         entities.people.onUpdate((data) => {
-            alert(`An existing product named ${data.result.name} has been updated!`);
+            alert(`${person.name} has been updated!`);
           });
     }
+
     return(
         <div className="updateDOS">
         <Paper style={{width: "420px", padding: ".8rem", height: "200px"}}>  
@@ -70,7 +87,7 @@ const UpdateDOSPage = () => {
                         color='success'
                         size='large'
                         style={{position: "absolute", borderRadius: "10px",padding: ".5rem",
-                                textTransform: "capitalize",top: "297px"}}                        
+                                textTransform: "capitalize"}}                        
                         onClick = {findPerson}
                         type='submit'> Search for Person
 
@@ -79,7 +96,15 @@ const UpdateDOSPage = () => {
                     </Col>
                 </Row>
             </form>
-            {show? <div className='updateDOS-form'>
+           
+            <Modal
+                open={show}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box sx={style}>
+                <div className='updateDOS-form'>
                     <form onSubmit={stop}>
                         <h3>Update: <span>{person.name}</span></h3>
                         <Row>
@@ -118,10 +143,9 @@ const UpdateDOSPage = () => {
                             </Col>
                         </Row>
                     </form>
-                </div> :
-                ""
-                } 
-                
+                </div>
+                </Box>
+            </Modal>
                 </Paper>
         </div>
     )
