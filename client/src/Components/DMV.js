@@ -16,6 +16,7 @@ const DMV = (props) => {
         getDMV()
 
     },[])
+
     return(
         <div>
             <h2 className="title">Department of Motor Vehicles</h2>
