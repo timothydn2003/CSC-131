@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Button, TextField } from '@mui/material';
+import { Button, Paper, TextField } from '@mui/material';
 import { useState,useEffect } from 'react'
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import useSS from '../../Hooks/useSS';
@@ -37,6 +37,8 @@ const SSPage = () => {
 
     return(
         <div className='ssForm'>
+            <Paper>
+            <div className='ssAdd'>
             <form onSubmit={stop}>
                 <h3>Add a New Person</h3>
                 <Row>
@@ -76,6 +78,8 @@ const SSPage = () => {
                     </Col>
                 </Row>
             </form>
+            </div>
+            </Paper>
             <h1>{name}</h1>
         </div>
     )
