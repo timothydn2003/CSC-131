@@ -25,9 +25,9 @@ const DMV = (props) => {
                     return(
                         <div className="content">
                             <img className="image" src= {data.image} alt = 'DMV Photo'></img>
-                            <h3 className="info">{data.name}</h3>
-                            <h3 className="info">{data.dl}</h3>
-                            <h3 className="info">{data.dob}</h3>
+                            <h3 className="info"><b>Full Name:</b> {data.name}</h3>
+                            <h3 className="info"><b>Drivers License Number:</b> {data.dl}</h3>
+                            <h3 className="info"><b>Date-of-Birth:</b> {data.dob}</h3>
                          </div>
                     )
                 }

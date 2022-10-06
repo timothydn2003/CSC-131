@@ -23,10 +23,10 @@ const DOS = (props) => {
                 return(
                     <div className='content'>
                         <img className='image' src= {data.dosImage} alt = "Department of State Photo"></img>
-                        <h3 className="info">{data.name}</h3>
-                        <h3 className="info">{data.dob}</h3>
-                        <h3 className="info">{data.passportnumber}</h3>
-                        <h3 className="info">{data.passportexpiration}</h3>
+                        <h3 className="info"><b>Full Name: </b>{data.name}</h3>
+                        <h3 className="info"><b>Date-of-Birth: </b>{data.dob}</h3>
+                        <h3 className="info"><b>Passport Number: </b>{data.passportnumber}</h3>
+                        <h3 className="info"><b>Passport Expiration: </b>{data.passportexpiration}</h3>
                     </div>
                 )
             }

@@ -61,7 +61,11 @@ label{
 .info{
   color: black;
   font-size: 20px;
-  font-weight: 20;
+  font-weight: 10;
+}
+.info b{
+  font-size: 20px;
+  font-weight: 600;
 }
 .login-form{
   width: 250px;
@@ -174,6 +178,7 @@ label{
 .updateDOS-form span{
   font-size: 20px;
 }
+
 @media only screen and (max-width:767px){
   .ss{
     width: 250px;

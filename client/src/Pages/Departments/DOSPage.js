@@ -38,27 +38,6 @@ const DOSPage = () => {
                     path: "dob",
                     operations: ['READ'],
                 },
-                {
-                    principal:{
-                        nodes:['*'],
-                    },
-                    path: 'dosImage',
-                    operations: ['READ']
-                },
-                {
-                    principal:{
-                        nodes:['*'],
-                    },
-                    path: 'passportnumber',
-                    operations: ['READ']
-                },
-                {
-                    principal:{
-                        nodes:['*'],
-                    },
-                    path: 'passportexpiration',
-                    operations: ['READ']
-                },
             ],
         },
     },
