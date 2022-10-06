@@ -9,7 +9,6 @@ import Col from 'react-bootstrap/Col';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import '../../App.css'
 
-
 const DOSPage = () => {
     const{entities} = useDOS();
     const[name,setName] = useState('')
