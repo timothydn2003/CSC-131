@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/esm/Row';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/esm/Container';
 import Col from 'react-bootstrap/Col';
-import { Button, TextField } from '@mui/material';
+import { Button, Paper, TextField } from '@mui/material';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import '../../App.css'
 import { Link } from 'react-router-dom';
@@ -31,10 +31,37 @@ const DMVPage = () => {
              dl:dl
         },
         {
+            aclInput:{
+                acl: [
+                    {
+                        principal: {
+                            nodes: ['*'],
+                        },
+                        path: "dob",
+                        operations: ['READ'],
+                    },
+                    {
+                        principal:{
+                            nodes:['*'],
+                        },
+                        path: 'image',
+                        operations: ['READ']
+                    },
+                    {
+                        principal:{
+                            nodes:['*'],
+                        },
+                        path: 'dl',
+                        operations: ['READ']
+                    },
+                ],
+            },
+        },
+        {
             syncMode: 'ASYNC'
-        })
-    }
-    
+        },
+    )
+}
     useEffect(() => {
         const unsubscribe = entities.people.onAdd((data) => {
             alert(`${data.result.name} has been added!`);
@@ -43,7 +70,7 @@ const DMVPage = () => {
     },[])
     return(
         <div className='dmvForm'>
-          <Container>
+          <Paper>
            <div className='add'>
            <form onSubmit={stop}>
                 <div className='header'>
@@ -98,7 +125,7 @@ const DMVPage = () => {
                 </Row>
             </form>
             </div>
-          </Container>
+          </Paper>
         </div>
     )
 }
