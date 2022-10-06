@@ -62,7 +62,6 @@ const DMVPage = () => {
         },
     )
 }
-    
     useEffect(() => {
         const unsubscribe = entities.people.onAdd((data) => {
             alert(`${data.result.name} has been added!`);
