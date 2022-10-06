@@ -10,7 +10,7 @@ import Theme from '../Theme';
 function Navigation() {
   return (
 
-    <Navbar fixed = "top" collapseOnSelect expand="lg" bg="white" variant="light" className='nav-bar'>
+    <Navbar fixed = "top" collapseOnSelect expand="lg" bg="light" variant="light" className='nav-bar'>
       <Container >
         <Navbar.Brand href="/"><h3>TravelX</h3></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

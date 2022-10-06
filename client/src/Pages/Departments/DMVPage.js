@@ -40,20 +40,6 @@ const DMVPage = () => {
                         path: "dob",
                         operations: ['READ'],
                     },
-                    {
-                        principal:{
-                            nodes:['*'],
-                        },
-                        path: 'image',
-                        operations: ['READ']
-                    },
-                    {
-                        principal:{
-                            nodes:['*'],
-                        },
-                        path: 'dl',
-                        operations: ['READ']
-                    },
                 ],
             },
         },

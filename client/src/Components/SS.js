@@ -22,8 +22,8 @@ const SS = (props) => {
             if(data.ssn === props.num){
                 return (
                     <div className='content'>
-                        <h3 className="info">{data.name}</h3>
-                        <h3 className="info">{data.dob}</h3>
+                        <h3 className="info"> <b>Full Name: </b>{data.name}</h3>
+                        <h3 className="info"> <b>Date-of-Birth: </b>{data.dob}</h3>
                     </div>
                 )
             }
