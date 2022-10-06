@@ -40,7 +40,7 @@ const UpdateDMVPage = () => {
             setPeople(response.items)
         }
         getDMV()
-    })
+    },[])
     //get list of people from database when page loads
     const stop = (event) => {
         event.preventDefault();
