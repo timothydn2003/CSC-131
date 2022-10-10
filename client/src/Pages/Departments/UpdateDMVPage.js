@@ -9,10 +9,11 @@ import Row from 'react-bootstrap/esm/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/esm/Container';
 import PersonSearchRoundedIcon from '@mui/icons-material/PersonSearchRounded';
+import useFetchDMV from '../../Hooks/useFetchDMV';
 
 
 const UpdateDMVPage = () => {
-    const[people,setPeople] = useState([])
+    const{dmvList} = useFetchDMV();
     const[person,setPerson] = useState({})
     const[name,setName] = useState('')
     const[dl,setDL] = useState('')
@@ -34,20 +35,13 @@ const UpdateDMVPage = () => {
         p: 4,
       };
       //styling for modal
-    useEffect(() => {
-        async function getDMV(){
-            const response = await entities.people.list();
-            setPeople(response.items)
-        }
-        getDMV()
-    },[])
-    //get list of people from database when page loads
+   
     const stop = (event) => {
         event.preventDefault();
     }
     //prevents page from loading on form submit
     const findPerson = () =>{
-        people.map((data) => {
+        dmvList.map((data) => {
             if(data.name === name){
                 setPerson(data)
                 handleOpen()
@@ -61,11 +55,15 @@ const UpdateDMVPage = () => {
             image:image,
             dl: dl
         })
-        entities.people.onUpdate((data) => {
-            alert(`${person.name} has been updated!`);
-          });
     }
     //updates person in database
+    useEffect(() => {
+        const unsubscribe = entities.people.onUpdate(() => {
+            alert(`${person.name} has been updated!`);
+        })
+        return () => unsubscribe();
+    },[])
+    //get list of people from database when page loads
     return(
         <div className='updateDMV'>
             <Paper style={{width: "420px", padding: ".8rem", height: "200px"}}>

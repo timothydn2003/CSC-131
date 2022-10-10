@@ -11,12 +11,12 @@ import PersonSearchRoundedIcon from '@mui/icons-material/PersonSearchRounded';
 import DMV from '../Components/DMV.js';
 import DOS from '../Components/DOS.js';
 import SS from '../Components/SS.js';
+import Match from '../Components/Match.js';
 
 const Home = () => {
     const[num,setNum] = useState("");
     const[ssn,setSSN] = useState("");
     const [errSSN, setErrSSN] = useState(false);
-    const[match,setMatch] = useState(false)
     //declaring states
 
     const validate = () => {
@@ -68,6 +68,7 @@ const Home = () => {
                         </Row>
                     </Container>
                     <div className='data'>
+                    <Match num = {ssn}/>
                         <Container>
                             <Row>
                                 <Col md = "4" xs = "12">

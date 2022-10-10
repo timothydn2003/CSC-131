@@ -9,9 +9,11 @@ import Container from 'react-bootstrap/esm/Container';
 import Col from 'react-bootstrap/Col';
 import '../../App.css'
 import PersonSearchRoundedIcon from '@mui/icons-material/PersonSearchRounded';
+import useFetchDOS from "../../Hooks/useFetchDOS";
 
 const UpdateDOSPage = () => {
     const{entities} = useDOS();
+    const{dosList} = useFetchDOS();
     const[name,setName] = useState();
     const[people,setPeople] = useState([])
     const[person,setPerson] = useState({})
@@ -39,14 +41,14 @@ const UpdateDOSPage = () => {
         event.preventDefault();
     }
     useEffect(() => {
-        async function getDOS(){
-            const response = await entities.people.list();
-            setPeople(response.items)
-        }
-        getDOS()
-    },[])
+        const unsubscribe = entities.people.onUpdate(() => {
+            alert(`${person.name} has been updated!`);
+        })
+        return () => unsubscribe();
+    })
+        
     const findPerson = () =>{
-        people.map((data) => {
+        dosList.map((data) => {
             if(data.name === name){
                 setPerson(data)
                 handleOpen()
@@ -60,9 +62,7 @@ const UpdateDOSPage = () => {
             passportnumber:passport,
             passportexpiration:passportExpir
         })
-        entities.people.onUpdate((data) => {
-            alert(`${person.name} has been updated!`);
-          });
+       
     }
 
     return(
