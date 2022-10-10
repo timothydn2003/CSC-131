@@ -1,24 +1,14 @@
 import '../App.css'
 import useSS from '../Hooks/useSS'
 import { useState,useEffect } from "react";
+import useFetchSS from '../Hooks/useFetchSS';
 
 const SS = (props) => {
-    const{entities} = useSS();
-    const[people,setPeople] = useState([])
-
-    useEffect(() => {
-        async function getSS(){
-            const response = await entities.people.list();
-            setPeople(response.items)
-        }
-        getSS();
-
-    },[])
-    
+   const{ssList} = useFetchSS()
     return(
         <div>
             <h2 className='title'>Social Security</h2>
-          {people.map((data) => {
+          {ssList.map((data) => {
             if(data.ssn === props.num){
                 return (
                     <div className='content'>

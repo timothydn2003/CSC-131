@@ -1,24 +1,15 @@
 import '../App.css'
 import useDOS from '../Hooks/useDOS'
 import { useState,useEffect, useMemo } from "react";
+import useFetchDOS from '../Hooks/useFetchDOS';
 
 const DOS = (props) => {
-    const{entities} = useDOS();
-    const[people,setPeople] = useState([])
+    const{dosList} = useFetchDOS()
     const[match,setMatch] = useState(false)
-
-    async function getDOS(){
-        const response = await entities.people.list();
-        setPeople(response.items)
-    }
-    useEffect(() => {
-        getDOS();
-    },[])
-    
     return(
         <div>
             <h2 className='title'>Department of State</h2>
-          {people.map((data) => {
+          {dosList.map((data) => {
             if(data.ssn === props.num){
                 return(
                     <div className='content'>
