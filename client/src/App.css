@@ -55,9 +55,9 @@ label{
   border-radius: 10px;
   margin-right: 20px;
 }
-.submit-btn{
+#submit-btn{
   padding: .5rem;
-  background-color: transparent;
+  background-color: #680101;
   border-radius: 10px;
   margin-left: 10px;
 }
