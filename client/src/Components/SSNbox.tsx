@@ -43,9 +43,8 @@ export const SSNbox = ({values, setValues}:SSNboxProps) => {
   };
 
   return (
-
-    <FormControl variant="standard" id="filled-basic">
-        <InputLabel htmlFor="formatted-text-mask-input">Enter SSN</InputLabel>
+    <FormControl variant="filled" >
+        <InputLabel htmlFor="formatted-text-mask-input">Enter SSN *</InputLabel>
         <Input
           value={values}
           onChange={handleChange}
@@ -55,7 +54,5 @@ export const SSNbox = ({values, setValues}:SSNboxProps) => {
           inputComponent={TextMaskCustom as any} 
         />
     </FormControl>
-
-
   );
 }
