@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/esm/Container';
 import Col from 'react-bootstrap/Col';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import '../../App.css'
-
+import { SSNbox } from "../../Components/SSNbox";
 const DOSPage = () => {
     const{entities} = useDOS();
     const[name,setName] = useState('')
@@ -101,7 +101,7 @@ const DOSPage = () => {
                 </Row>
                 <Row>
                     <Col md = '6' xs = '12'>
-                        <TextField id="filled-basic" label="SSN" variant="filled" onChange={(e) => setSSN(e.target.value)} required/>
+                        <SSNbox value={ssn} setValues={setSSN} ></SSNbox>
                     </Col>
                     <Col md = '6' xs = '12'>
                         <TextField id="filled-basic" label="Picture" variant="filled" onChange={(e) => setImage(e.target.value)} type='url' required/>
