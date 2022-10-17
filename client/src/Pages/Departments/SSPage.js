@@ -6,6 +6,7 @@ import { useState,useEffect } from 'react'
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import useSS from '../../Hooks/useSS';
 import '../../App.css'
+import { SSNbox } from '../../Components/SSNbox';
 
 const SSPage = () => {
     const[name,setName] = useState('')
@@ -74,7 +75,7 @@ const SSPage = () => {
                 </Row>
                 <Row>
                     <Col md = "6" xs = "12">
-                        <TextField id="filled-basic" label="SSN" variant="filled" onChange={(e) => setSSN(e.target.value)} required/>
+                        <SSNbox value={ssn} setValues={setSSN} ></SSNbox>
                     </Col>
                     <Col md = "6" xs = "12">
                         <Button 
