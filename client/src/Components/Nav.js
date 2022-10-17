@@ -16,10 +16,12 @@ function Navigation(props) {
   return (
     <Navbar fixed = "top" collapseOnSelect expand="lg" variant="light" className='nav-bar'>
       <Container className='navbar-container'>
-        <Navbar.Brand href="/">
-            <div className="nav-seal"/>
-        </Navbar.Brand>
-        <Navbar.Brand href="/"><h3 className='nav-title'>TravelX</h3></Navbar.Brand>
+        <LinkContainer to = '/'>
+          <Navbar.Brand>
+              <div className="nav-seal"/>
+          </Navbar.Brand>
+        </LinkContainer>
+        <LinkContainer to = '/'><Navbar.Brand><h3 className='nav-title'>TravelX</h3></Navbar.Brand></LinkContainer>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
