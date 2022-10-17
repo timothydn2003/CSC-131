@@ -75,7 +75,7 @@ const SSPage = () => {
                 </Row>
                 <Row>
                     <Col md = "6" xs = "12">
-                        <SSNbox value={ssn} setValues={setSSN} ></SSNbox>
+                        <SSNbox values={ssn} setValues={setSSN}/>  
                     </Col>
                     <Col md = "6" xs = "12">
                         <Button 

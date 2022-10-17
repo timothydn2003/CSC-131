@@ -8,7 +8,7 @@ import { Button, Paper, TextField } from '@mui/material';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import '../../App.css'
 import { Link } from 'react-router-dom';
-import { SSNbox } from '../../Components/SSNbox';
+import {SSNbox} from "../../Components/SSNbox"
 
 
 
@@ -46,9 +46,10 @@ const DMVPage = () => {
         },
         {
             syncMode: 'ASYNC'
-        },
-    )
-}
+         },
+        )
+    }
+    
     useEffect(() => {
         const unsubscribe = entities.people.onAdd((data) => {
             alert(`${data.result.name} has been added!`);
@@ -93,7 +94,7 @@ const DMVPage = () => {
                 </Row>
                 <Row>
                     <Col md = "6" xs = "12">
-                        <SSNbox value={ssn} setValues={setSSN} ></SSNbox>
+                        <SSNbox values={ssn} setValues={setSSN}/>  
                     </Col>
                     <Col md = "6" xs = "12">
                         <Button 
