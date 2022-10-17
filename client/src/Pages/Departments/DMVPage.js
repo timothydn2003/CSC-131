@@ -8,6 +8,7 @@ import { Button, Paper, TextField } from '@mui/material';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import '../../App.css'
 import { Link } from 'react-router-dom';
+import { SSNbox } from '../../Components/SSNbox';
 
 
 
@@ -92,7 +93,7 @@ const DMVPage = () => {
                 </Row>
                 <Row>
                     <Col md = "6" xs = "12">
-                        <TextField id="filled-basic" label="SSN" variant="filled" onChange={(e) => setSSN(e.target.value)} required/>
+                        <SSNbox value={ssn} setValues={setSSN} ></SSNbox>
                     </Col>
                     <Col md = "6" xs = "12">
                         <Button 

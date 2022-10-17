@@ -10,9 +10,12 @@ import Theme from '../Theme';
 function Navigation() {
   return (
 
-    <Navbar fixed = "top" collapseOnSelect expand="lg" bg="light" variant="light" className='nav-bar'>
-      <Container >
-        <Navbar.Brand href="/"><h3>TravelX</h3></Navbar.Brand>
+    <Navbar fixed = "top" collapseOnSelect expand="lg" variant="light" className='nav-bar'>
+      <Container className='navbar-container'>
+        <Navbar.Brand href="/">
+            <div className="nav-seal"/>
+        </Navbar.Brand>
+        <Navbar.Brand href="/"><h3 className='nav-title'>TravelX</h3></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">

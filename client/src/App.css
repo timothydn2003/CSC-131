@@ -3,22 +3,37 @@
   font-family: "Poppins";
 }
 .home{
-  margin-top: 80px;
+  margin-top: 140px;
   padding: 10px 20px;
   align-items: center;
   justify-content: center;
 }
 .navbar{
   box-shadow: 0 4px 4px -2px #E7E7E7;
+  background-image: url("img/nav.png");
+  background-color: #06284C !important;
+  border-bottom:10px #680101 solid
+}
+.navbar-container{
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.nav-seal{
+  height: 89px;
+  width: 89px;
+  background-image: url("img/Department_of_state.svg");
+  margin-left: 0px;
 }
 .navbar-brand h3{
-  color: black;
+  color: white;
   text-decoration: none;
   font-weight: 600;
 }
 .navbar-nav a {
-  color: black;
+  color: white !important;
   text-decoration: none;
+  padding:10px;
+  background-color: #680101;
 }
 .navbar-nav a:hover{
   color: grey;
@@ -40,9 +55,9 @@ label{
   border-radius: 10px;
   margin-right: 20px;
 }
-.submit-btn{
+#submit-btn{
   padding: .5rem;
-  background-color: transparent;
+  background-color: #680101;
   border-radius: 10px;
   margin-left: 10px;
 }
