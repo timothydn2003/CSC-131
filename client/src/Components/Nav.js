@@ -6,10 +6,14 @@ import '../App.css'
 import {Link} from 'react-router-dom'
 import {LinkContainer} from 'react-router-bootstrap'
 import Theme from '../Theme';
+import Button from '@mui/material/Button';
+import { useContext } from 'react'
+import { AppContext } from "../App";
 
-function Navigation() {
+
+function Navigation(props) {
+  const{signedIn} = useContext(AppContext)
   return (
-
     <Navbar fixed = "top" collapseOnSelect expand="lg" variant="light" className='nav-bar'>
       <Container className='navbar-container'>
         <Navbar.Brand href="/">
@@ -21,8 +25,8 @@ function Navigation() {
           <Nav className="me-auto">
           </Nav>
           <Nav>
-            <LinkContainer to="/">
-              <Nav.Link>Home</Nav.Link>
+            <LinkContainer  to="/">
+              <Nav.Link >Home</Nav.Link>
             </LinkContainer>
             <NavDropdown align={"end"} title="Edit" id="collasible-nav-dropdown">
               <LinkContainer to="/DMV">
@@ -35,6 +39,16 @@ function Navigation() {
                 <NavDropdown.Item>Department of State</NavDropdown.Item>
               </LinkContainer>
             </NavDropdown>
+            {signedIn?  <Button 
+              disableElevation
+              id='signout-btn' 
+              variant='contained'
+              color='success'
+              size='large'
+              style={{padding: ".5rem",
+                      textTransform: "capitalize"}}
+              onClick={props.logout} >Logout
+          </Button>:''}
           </Nav>
           <Theme/>
         </Navbar.Collapse>

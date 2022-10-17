@@ -89,7 +89,7 @@ label{
   margin-right: auto;
   padding: 2rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  margin-top: 20vh;
+  margin-top: 30vh;
   
 }
 .login-form h4{
@@ -97,10 +97,8 @@ label{
 }
 .ssForm{
   width: 500px;
-  margin-left: auto;
-  margin-right: auto;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  margin-top: 30vh;  
+  margin: 30vh auto 0 auto;
 }
 .ssAdd{
   border: 2px solid grey;
@@ -137,7 +135,7 @@ label{
   display: inline;
 }
 .dmvForm{
-  margin: 20vh auto 0 auto;
+  margin: 30vh auto 0 auto;
   width: 500px;
 }
 .updateDMV{
@@ -162,7 +160,7 @@ label{
 .dosForm{
   width: 500px;
   height: 400px;
-  margin: 20vh auto 0 auto;
+  margin: 30vh auto 0 auto;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 2rem;
   border: 2px solid grey;
@@ -193,7 +191,11 @@ label{
 .updateDOS-form span{
   font-size: 20px;
 }
-
+#signout-btn{
+  background-color: #680101;
+  border-radius: 0;
+  justify-content: left;
+}
 @media only screen and (max-width:767px){
   .ss{
     width: 250px;
