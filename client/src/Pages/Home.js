@@ -6,12 +6,12 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import { validSSN } from '../regex.js';
 import { Button } from "@mui/material";
-import { PatternFormat } from "react-number-format";
 import PersonSearchRoundedIcon from '@mui/icons-material/PersonSearchRounded';
 import DMV from '../Components/DMV.js';
 import DOS from '../Components/DOS.js';
 import SS from '../Components/SS.js';
 import Match from '../Components/Match.js';
+import {SSNbox} from "../Components/SSNbox"
 
 const Home = () => {
     const[num,setNum] = useState("");
@@ -43,12 +43,7 @@ const Home = () => {
                         <Row>
                             <Col>
                             <form className='ssn-form' onSubmit={stop}>
-                                <label>Enter SSN</label><br/>
-                                <PatternFormat className= 'ssn-input'
-                                    format="###-##-####" 
-                                    placeholder='xxx-xx-xxxx'
-                                    onChange={(e) => setNum(e.target.value)}
-                                /> 
+                                <SSNbox values={num} setValues={setNum}/>                                
                                 <Button 
                                     disableElevation
                                     id='submit-btn' 
