@@ -2,11 +2,7 @@ import useDMV from "../Hooks/useDMV"
 import { useState,useEffect } from "react";
 import useFetchDMV from "../Hooks/useFetchDMV";
 const DMV = (props) => {
-    const{entities} = useDMV();
     const{dmvList} = useFetchDMV();
-    const[person,setPerson] = useState({});
-    const[name,setName] = useState('')
-    const[dob,setDOB] = useState('')
 
     return(
         <div>
