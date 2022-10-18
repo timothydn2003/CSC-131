@@ -34,16 +34,17 @@ const TextMaskCustom = React.forwardRef<HTMLElement, CustomProps>(
 
 interface SSNboxProps{
   values:string,
-  setValues(arg: any):void
+  setValues(arg: any):void,
+  classname: string
 }
 
-export const SSNbox = ({values, setValues}:SSNboxProps) => {
+export const SSNbox = ({values, setValues,classname}:SSNboxProps) => {
   const handleChange = (event: any)=>{
     setValues(event.target.value)
   };
 
   return (
-    <FormControl variant="filled" >
+    <FormControl variant="filled" className={classname}>
         <InputLabel htmlFor="formatted-text-mask-input">Enter SSN *</InputLabel>
         <Input
           value={values}
