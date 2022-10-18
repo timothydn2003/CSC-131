@@ -23,11 +23,11 @@ function Navigation(props) {
         </LinkContainer>
         <LinkContainer to = '/'><Navbar.Brand><h3 className='nav-title'>TravelX</h3></Navbar.Brand></LinkContainer>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
+        <Navbar.Collapse id="responsive-navbar-nav" style={{color: '#680101'}}>
           <Nav className="me-auto">
           </Nav>
           <Nav>
-            <LinkContainer  to="/">
+            <LinkContainer to="/">
               <Nav.Link >Home</Nav.Link>
             </LinkContainer>
             <NavDropdown align={"end"} title="Edit" id="collasible-nav-dropdown">

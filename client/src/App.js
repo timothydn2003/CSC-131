@@ -28,6 +28,8 @@ function App() {
   }
   const logout = () => {
     setSignedIn(false)
+    setLoginPassword('')
+    setLoginUsername('')
   }
   return (
     <div className="App">

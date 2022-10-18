@@ -41,6 +41,7 @@
 .navbar-brand a:hover{
   color: grey;
 }
+
 form.ssn-form{
   width: 280px;
   margin-left: auto;
@@ -197,7 +198,6 @@ label{
   border-radius: 0;
   justify-content: left;
 }
-
 @media only screen and (max-width:767px){
   .ss{
     width: 250px;
