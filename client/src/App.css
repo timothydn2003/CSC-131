@@ -97,6 +97,34 @@ label{
 .login-form h4{
   margin-bottom: 20px;
 }
+.ssn-form{
+  margin: auto;
+}
+.ssn-search-container{
+  margin: auto;
+  width: 430px !important;
+  height: 340px;
+}
+.ssn-search-header{
+  width: 380px;
+  color: white;
+  padding-right: 30px;
+  padding-left: 40px;
+  background-color: #680101;
+  margin-bottom: 0px !important;
+}
+.ssn-search-centerdiv{
+  margin-top: 0px;
+  height: 120px;
+  background-image: url("img/Passport_Card.svg");
+  background-repeat: no-repeat;
+  background-size: 200px;
+  background-position: center;
+
+}
+.ssn-search-alert{
+  margin-bottom: 10px;
+}
 .ssForm{
   width: 500px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
