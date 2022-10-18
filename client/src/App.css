@@ -41,6 +41,7 @@
 .navbar-brand a:hover{
   color: grey;
 }
+
 form.ssn-form{
   width: 280px;
   margin-left: auto;
@@ -90,6 +91,7 @@ label{
   padding: 2rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin-top: 30vh;
+  border: 2px solid grey;
   
 }
 .login-form h4{
