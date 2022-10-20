@@ -27,8 +27,8 @@ return(
     <Container className='ssn-search-container'>
         <Paper elevation={24} variant={'outlined'} className={'ssn-search-paper'} >
             <div className='ssn-search-header'>
-                <h3>Passanger Records</h3>
-                <p>Search for a passanger by entering their SSN.</p>
+                <h3>Passenger Records</h3>
+                <p>Search for a passenger by entering their SSN.</p>
             </div>
             <div  className="ssn-search-centerdiv"></div>
             <form className='ssn-form' onSubmit={stop}>
