@@ -7,7 +7,7 @@ const SS = (props) => {
    const{ssList} = useFetchSS()
     return(
         <div>
-            <h2 className='title'>Social Security</h2>
+            {props.num===''?'':<h2 className='title'>Social Security</h2>}
           {ssList.map((data) => {
             if(data.ssn === props.num){
                 return (

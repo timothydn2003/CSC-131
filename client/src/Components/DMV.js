@@ -6,7 +6,7 @@ const DMV = (props) => {
 
     return(
         <div>
-            <h2 className="title">Department of Motor Vehicles</h2>
+            {props.num===''?'':<h2 className="title">Department of Motor Vehicles</h2>}
            {dmvList.map((data) => {
                 if(data.ssn === props.num){
                     return(

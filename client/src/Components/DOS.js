@@ -5,10 +5,9 @@ import useFetchDOS from '../Hooks/useFetchDOS';
 
 const DOS = (props) => {
     const{dosList} = useFetchDOS()
-    const[match,setMatch] = useState(false)
     return(
         <div>
-            <h2 className='title'>Department of State</h2>
+           {props.num === ''? '': <h2 className='title'>Department of State</h2>}
           {dosList.map((data) => {
             if(data.ssn === props.num){
                 return(
