@@ -59,7 +59,7 @@ const UpdateDMVPage = () => {
     //updates person in database
     useEffect(() => {
         const unsubscribe = entities.people.onUpdate(() => {
-            alert(`${person.name} has been updated!`);
+            alert(person.name + ' has been updated!');
         })
         return () => unsubscribe();
     },[])

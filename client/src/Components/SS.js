@@ -8,9 +8,7 @@ const SS = (props) => {
    const{ssList} = useFetchSS()
     return(
         <div>
-            <Paper style={{  border: "2px solid black"}}>
-            <h3 className='title'>Social Security</h3>
-            </Paper>
+            <h2 className='title'>Social Security</h2>
           {ssList.map((data) => {
             if(data.ssn === props.num){
                 return (

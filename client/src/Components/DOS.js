@@ -6,12 +6,9 @@ import { Paper } from "@mui/material";
 
 const DOS = (props) => {
     const{dosList} = useFetchDOS()
-    const[match,setMatch] = useState(false)
     return(
         <div>
-            <Paper style={{  border: "2px solid black"}}>
             <h2 className='title'>Department of State</h2>
-            </Paper>
           {dosList.map((data) => {
             if(data.ssn === props.num){
                 return(
