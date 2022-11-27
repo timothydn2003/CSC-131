@@ -1,4 +1,4 @@
-import { Button,TextField } from "@mui/material";
+import { Button,TextField, Paper } from "@mui/material";
 import { useState } from 'react'
 import LoginIcon from '@mui/icons-material/Login';
 import { useContext } from 'react'
@@ -38,6 +38,7 @@ const Login = (props) => {
     };
     return(
         <div className="login-page">
+          <Paper style={{width: "250px",  margin: "20vh auto 0 auto"}}>
             <form className="login-form" onSubmit={stop}>
                 <h4>Login</h4>
                 <TextField id="filled-basic" label="Email" variant="filled" onChange={(e) => setLoginUsername(e.target.value)} required/>
@@ -76,6 +77,7 @@ const Login = (props) => {
                     <LoginIcon />
                 </Button>
             </form>
+            </Paper>
         </div>
     )
 }
