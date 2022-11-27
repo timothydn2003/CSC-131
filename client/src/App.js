@@ -18,30 +18,26 @@ function App() {
   const[signedIn, setSignedIn] = useState(false)
   const[loginUsername, setLoginUsername] = useState('')
   const[loginPassword,setLoginPassword] = useState('')
+  const[incorrectLogin, setIncorrectLogin] = useState(true)
 
 
   const check = () => {
-    // if(loginUsername === username && loginPassword === password){
-    //   setSignedIn(true)
-    // }else{
-    //   alert('Username or Password Incorrect!')
-    // }
-
     signInWithEmailAndPassword(auth,loginUsername,loginPassword)
     .then(( ) => {
       setSignedIn(true)
-    }).catch((error) => {
-      alert('Username or Password Incorrect!')
+    }).catch(() => {
+      setIncorrectLogin(false)
     })
   }
   const logout = () => {
     setSignedIn(false)
+    setIncorrectLogin(true)
     setLoginPassword('')
     setLoginUsername('')
   }
   return (
     <div className="App">
-    <AppContext.Provider value={{setLoginUsername, setLoginPassword,signedIn}}>
+    <AppContext.Provider value={{setLoginUsername, setLoginPassword,incorrectLogin,signedIn}}>
       <Router>
         <Navigation logout = {logout}/>
         <Routes>

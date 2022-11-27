@@ -94,7 +94,12 @@ label{
   
 }
 .login-form h4{
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+.message{
+  color: red;
+  font-size: 10px;
+  margin-bottom: 10px;
 }
 .ssn-form{
   margin: auto;
@@ -225,6 +230,7 @@ label{
   border-radius: 0;
   justify-content: left;
 }
+
 @media only screen and (max-width:767px){
   .ss{
     width: 250px;
