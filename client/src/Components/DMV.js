@@ -7,9 +7,7 @@ const DMV = (props) => {
 
     return(
         <div>
-            <Paper style={{  border: "2px solid black"}}>
             <h2 className="title">Department of Motor Vehicles</h2>
-            </Paper>
            {dmvList.map((data) => {
                 if(data.ssn === props.num){
                     return(
