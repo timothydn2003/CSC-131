@@ -9,6 +9,8 @@ import DOSPage from './Pages/Departments/DOSPage';
 import UpdateDMVPage from './Pages/Departments/UpdateDMVPage';
 import UpdateDOSPage from './Pages/Departments/UpdateDOSPage';
 import { useState, createContext } from 'react'
+import { auth } from "./firebase"
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 export const AppContext = createContext();
 
@@ -16,15 +18,21 @@ function App() {
   const[signedIn, setSignedIn] = useState(false)
   const[loginUsername, setLoginUsername] = useState('')
   const[loginPassword,setLoginPassword] = useState('')
-  const username = 'admin@csus.edu'
-  const password = 'teamhornet'
+
 
   const check = () => {
-    if(loginUsername === username && loginPassword === password){
+    // if(loginUsername === username && loginPassword === password){
+    //   setSignedIn(true)
+    // }else{
+    //   alert('Username or Password Incorrect!')
+    // }
+
+    signInWithEmailAndPassword(auth,loginUsername,loginPassword)
+    .then(( ) => {
       setSignedIn(true)
-    }else{
+    }).catch((error) => {
       alert('Username or Password Incorrect!')
-    }
+    })
   }
   const logout = () => {
     setSignedIn(false)

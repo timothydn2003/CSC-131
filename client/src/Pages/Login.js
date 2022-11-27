@@ -20,20 +20,22 @@ const Login = (props) => {
     const{setLoginPassword, setLoginUsername} = useContext(AppContext)
     const [values, setValues] = React.useState({
         showPassword: false,
-      });
+    });
+
     const stop = (event) => {
         event.preventDefault();
     }
-      const handleClickShowPassword = () => {
+
+    const handleClickShowPassword = () => {
         setValues({
           ...values,
           showPassword: !values.showPassword,
         });
       };
     
-      const handleMouseDownPassword = (event) => {
+    const handleMouseDownPassword = (event) => {
         event.preventDefault();
-      };
+    };
     return(
         <div className="login-page">
           <Paper style={{width: "250px",  margin: "20vh auto 0 auto"}}>
