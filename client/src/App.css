@@ -106,7 +106,7 @@ label{
 .ssn-search-container{
   margin: auto;
   width: 430px !important;
-  height: 340px;
+  height: 300px;
 }
 .ssn-search-header{
   text-align: center;
@@ -230,6 +230,10 @@ label{
 }
 .content{
   padding: 1rem;
+}
+.match-message{
+  padding: 3rem;
+  text-align: center;
 }
 @media only screen and (max-width:767px){
   .ss{
