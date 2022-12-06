@@ -1,15 +1,12 @@
 import '../App.css'
-import useSS from '../Hooks/useSS'
-import { useState,useEffect } from "react";
-import useFetchSS from '../Hooks/useFetchSS';
 import { Paper } from "@mui/material";
 
 const SS = (props) => {
-   const{ssList} = useFetchSS()
+   
     return(
         <div>
             <h2 className='title'>Social Security</h2>
-          {ssList.map((data) => {
+          {props.ssList.map((data) => {
             if(data.ssn === props.num){
                 return (
                     <Paper style={{  border: "2px solid black"}}>
