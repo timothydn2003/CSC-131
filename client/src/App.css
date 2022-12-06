@@ -67,7 +67,6 @@ label{
   height: auto;
 }
 .data{
-  margin-top: 40px;
   text-align: center;
 }
 .title{
@@ -110,12 +109,12 @@ label{
   height: 340px;
 }
 .ssn-search-header{
+  text-align: center;
+  font-size: 13px;
   width: 380px;
   color: white;
-  padding-right: 30px;
-  padding-left: 40px;
   background-color: #680101;
-  margin-bottom: 0px !important;
+  padding: .1rem;
 }
 .ssn-search-centerdiv{
   margin-top: 0px;
@@ -124,7 +123,6 @@ label{
   background-repeat: no-repeat;
   background-size: 200px;
   background-position: center;
-
 }
 .ssn-search-alert{
   margin-bottom: 10px;
@@ -230,7 +228,9 @@ label{
   border-radius: 0;
   justify-content: left;
 }
-
+.content{
+  padding: 1rem;
+}
 @media only screen and (max-width:767px){
   .ss{
     width: 250px;

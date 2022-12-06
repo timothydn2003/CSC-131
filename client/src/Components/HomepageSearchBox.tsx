@@ -8,7 +8,7 @@ import PersonSearchRoundedIcon from '@mui/icons-material/PersonSearchRounded';
 import Alert from '@mui/material/Alert';
 import Paper from '@mui/material/Paper';
 import { Status } from '../Pages/Home';
-
+import '../App.css'
 
 const stop = (event: { preventDefault: () => void; }) => {
         event.preventDefault();

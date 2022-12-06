@@ -1,14 +1,11 @@
 import useDMV from "../Hooks/useDMV"
 import { useState,useEffect } from "react";
-import useFetchDMV from "../Hooks/useFetchDMV";
 import { Paper } from "@mui/material";
 const DMV = (props) => {
-    const{dmvList} = useFetchDMV();
-
     return(
         <div>
             <h2 className="title">Department of Motor Vehicles</h2>
-           {dmvList.map((data) => {
+           {props.dmvList.map((data) => {
                 if(data.ssn === props.num){
                     return(
                         <Paper style={{  border: "2px solid black"}}>

@@ -1,15 +1,12 @@
 import '../App.css'
-import useDOS from '../Hooks/useDOS'
-import { useState,useEffect, useMemo } from "react";
-import useFetchDOS from '../Hooks/useFetchDOS';
 import { Paper } from "@mui/material";
 
 const DOS = (props) => {
-    const{dosList} = useFetchDOS()
+    
     return(
         <div>
             <h2 className='title'>Department of State</h2>
-          {dosList.map((data) => {
+          {props.dosList.map((data) => {
             if(data.ssn === props.num){
                 return(
                     <Paper style={{  border: "2px solid black"}}>
