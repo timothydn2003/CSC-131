@@ -36,6 +36,7 @@ const Home = () => {
     const[show,setShow] = useState(false)
     const handleOpen = () => setShow(true)
     const handleClose = () => setShow(false)
+    const[showButton, setShowButton] = useState(false);
 
     const style = {
         position: 'absolute',
@@ -81,6 +82,7 @@ const Home = () => {
                 setSSDOB(data.dob)
             }
         })
+        setShowButton(true);
     }
 
     const check = () => {
@@ -104,16 +106,17 @@ const Home = () => {
                     <Container>
                         <Row>
                             <Col>
-                            <Button 
-                                    disableElevation
-                                    variant='contained'
-                                    color='inherit'
-                                    size='large'
-                                    style={{ borderRadius: "10px",padding: ".5rem",
-                                            textTransform: "capitalize", marginBottom: "20px"}}
-                                    onClick= {check}                        
-                                    > Data Matching
-                                </Button>
+                           {showButton? 
+                           <Button 
+                                disableElevation
+                                variant='contained'
+                                color='inherit'
+                                size='large'
+                                style={{ borderRadius: "10px",padding: ".5rem",
+                                        textTransform: "capitalize", marginBottom: "20px"}}
+                                onClick= {check}                        
+                                >Data Matching
+                            </Button>: ""}
                             </Col>
                         </Row>
                         <Row>
