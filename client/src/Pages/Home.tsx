@@ -23,9 +23,10 @@ const Home = () => {
     const{dmvList} = useFetchDMV();
     const{dosList} = useFetchDOS();
     const{ssList} = useFetchSS()
+    //list of people
     const[num,setNum] = useState("");
     const[ssn,setSSN] = useState("");
-    const[alert ,setAlert]  = useState<Status>('uninitialized')
+    const[alerts ,setAlerts]  = useState<Status>('uninitialized')
     const[dmvName,setDMVName] = useState<string>("")
     const[dmvDOB, setdmvDOB] = useState("");
     const[dosName,setDOSName] = useState<string>("")
@@ -36,6 +37,9 @@ const Home = () => {
     const[show,setShow] = useState(false)
     const handleOpen = () => setShow(true)
     const handleClose = () => setShow(false)
+    const[show2,setShow2] = useState(false)
+    const handleOpen2 = () => setShow2(true)
+    const handleClose2 = () => setShow2(false)
     const[showButton, setShowButton] = useState(false);
 
     const style = {
@@ -54,10 +58,10 @@ const Home = () => {
     //declaring states
     const validate = () => {
         if (!validSSN.test(num)) {
-           setAlert('error');
+           setAlerts('error');
         }
         else{
-            setAlert('uninitialized')
+            setAlerts('uninitialized')
         }
     };
      //returns an error message if SSN is entered incorrectly
@@ -96,16 +100,22 @@ const Home = () => {
         }
 
     }
+    //sets names and dob when ssn is inputted
 
     const check = () => {
-        setMatches(false)
-        if(dmvName === dosName && dosName === ssName && dmvDOB === dosDOB && dosDOB === ssDOB && dmvName != "" && dosName != "" && ssName != ""){
+        if(dmvName === "" && dosName === "" && ssName === ""){
+            handleOpen2();
+            return
+        }
+        //checks to see if person exists
+        if(dmvName === dosName && dosName === ssName && dmvDOB === dosDOB && dosDOB === ssDOB){
             setMatches(true);
         }else{
             setMatches(false)
         }
-        console.log(matches)
+        //checks to see if data matches
         handleOpen()
+
     }
     return(
         <div className='home'>
@@ -114,7 +124,7 @@ const Home = () => {
                     values={num}
                     setValues={setNum}
                     onclick={() => { validate(); set(); }}
-                    alertStat={alert}
+                    alertStat={alerts}
                 />
                 <div className='data'>
                     <Container>
@@ -154,6 +164,18 @@ const Home = () => {
                 ><Box sx={style}>
                     <div className='match-message'>
                         {matches? <h1 style={{color: "green"}}>Data Matches</h1>: <h1 style={{color: "red"}}>Data Does Not Match</h1>}
+                    </div>
+                </Box>
+                    
+            </Modal>
+            <Modal
+                open={show2}
+                onClose={handleClose2}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+                ><Box sx={style}>
+                    <div className='match-message'>
+                        <h1 style={{color: 'red'}}>Person doesn't exist</h1>
                     </div>
                 </Box>
                     
