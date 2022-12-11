@@ -63,6 +63,13 @@ const Home = () => {
      //returns an error message if SSN is entered incorrectly
     
      const set = () => {
+        setDMVName("")
+        setdmvDOB("")
+        setDOSName("")
+        setdosDOB("")
+        setSSName("")
+        setSSDOB("")
+
         setSSN(num)
         ssList.map((data) => {
             if(data.ssn === num){
@@ -82,13 +89,20 @@ const Home = () => {
                 setSSDOB(data.dob)
             }
         })
-        setShowButton(true);
+        if(num!=""){
+            setShowButton(true);
+        }else{
+            setShowButton(false)
+        }
+
     }
 
     const check = () => {
         setMatches(false)
-        if(dmvName === dosName && dosName === ssName && dmvDOB === dosDOB && dosDOB === ssDOB){
+        if(dmvName === dosName && dosName === ssName && dmvDOB === dosDOB && dosDOB === ssDOB && dmvName != "" && dosName != "" && ssName != ""){
             setMatches(true);
+        }else{
+            setMatches(false)
         }
         console.log(matches)
         handleOpen()

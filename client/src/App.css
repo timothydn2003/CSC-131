@@ -69,6 +69,9 @@ label{
 .data{
   text-align: center;
 }
+.data-row{
+  margin-top: 5%;
+}
 .title{
   font-weight: 300px;
   font-size: 30px;
@@ -104,7 +107,7 @@ label{
   margin: auto;
 }
 .ssn-search-container{
-  margin: auto;
+  margin-bottom: 1%;
   width: 430px !important;
   height: 300px;
 }
