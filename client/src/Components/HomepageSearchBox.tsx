@@ -24,7 +24,7 @@ interface SSNsearchBoxProps{
 const alertText ={'warning':'SSN not found','error':'SSN is invalid. Please try again.'}
 export const SSNsearchBox = ({values,setValues,onclick,alertStat}:SSNsearchBoxProps) =>{
 return(
-    <Container className='ssn-search-container'>
+    <Container className='ssn-search-container' style={{marginBottom : alertStat==('error'||'warning')? '3%': '0px'}}>
         <Paper elevation={24} variant={'outlined'} className={'ssn-search-paper'} >
             <div className='ssn-search-header'>
                 <h3>Passenger Records</h3>
