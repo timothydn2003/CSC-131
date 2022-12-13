@@ -11,3 +11,4 @@ const useDMV = () => {
       return {entities}
 }
 export default useDMV
+//This file is to set up the Vendia client for our DMV entity

@@ -11,3 +11,4 @@ const useSS = () => {
       return {entities}
 }
 export default useSS
+//This file is to set up the Vendia client for our SS entity

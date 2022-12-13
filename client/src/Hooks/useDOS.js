@@ -11,3 +11,4 @@ const useDOS = () => {
       return {entities}
 }
 export default useDOS
+//This file is to set up the Vendia client for our DOS entity

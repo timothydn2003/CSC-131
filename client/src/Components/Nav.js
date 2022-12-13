@@ -5,7 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import '../App.css'
 import {Link} from 'react-router-dom'
 import {LinkContainer} from 'react-router-bootstrap'
-import Theme from '../Theme';
+import Theme from '../Functions/Theme';
 import Button from '@mui/material/Button';
 import { useContext } from 'react'
 import { AppContext } from "../App";

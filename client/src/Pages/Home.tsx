@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import { validSSN } from '../regex.js';
+import { validSSN } from '../Functions/regex.js';
 import DMV from '../Components/DMV.js';
 import DOS from '../Components/DOS.js';
 import SS from '../Components/SS.js';
@@ -28,11 +28,11 @@ const Home = () => {
     const[ssn,setSSN] = useState("");
     const[alerts ,setAlerts]  = useState<Status>('uninitialized')
     const[dmvName,setDMVName] = useState<string>("")
-    const[dmvDOB, setdmvDOB] = useState("");
+    const[dmvDOB, setdmvDOB] = useState<string>("");
     const[dosName,setDOSName] = useState<string>("")
-    const[dosDOB, setdosDOB] = useState("");
+    const[dosDOB, setdosDOB] = useState<string>("");
     const[ssName, setSSName] = useState<string>("");
-    const[ssDOB, setSSDOB] = useState("");
+    const[ssDOB, setSSDOB] = useState<string>("");
     const[matches,setMatches] = useState(false)
     const[show,setShow] = useState(false)
     const handleOpen = () => setShow(true)
@@ -42,6 +42,7 @@ const Home = () => {
     const handleClose2 = () => setShow2(false)
     const[showButton, setShowButton] = useState(false);
 
+    //declaring states
     const style = {
         position: 'absolute',
         top: '50%',
@@ -55,7 +56,6 @@ const Home = () => {
         height: 200
       };
 
-    //declaring states
     const validate = () => {
         if (!validSSN.test(num)) {
            setAlerts('error');
@@ -73,9 +73,10 @@ const Home = () => {
         setdosDOB("")
         setSSName("")
         setSSDOB("")
+        //sets all variables to empty so we can check if the person exists 
 
         setSSN(num)
-        ssList.map((data) => {
+        dmvList.map((data) => {
             if(data.ssn === num){
                 setDMVName(data.name)
                 setdmvDOB(data.dob)
@@ -93,11 +94,14 @@ const Home = () => {
                 setSSDOB(data.dob)
             }
         })
-        if(num!=""){
+        //loop through each department to check data
+
+        if(num!==""){
             setShowButton(true);
         }else{
             setShowButton(false)
         }
+        //if no ssn is inputted then data matching button wont appear
 
     }
     //sets names and dob when ssn is inputted
@@ -115,7 +119,7 @@ const Home = () => {
         }
         //checks to see if data matches
         handleOpen()
-
+        
     }
     return(
         <div className='home'>
