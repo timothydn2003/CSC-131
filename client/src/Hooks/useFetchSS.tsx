@@ -14,3 +14,4 @@ const useFetchSS = () => {
     return{ ssList }
 }
 export default useFetchSS
+//this file is to fetch the data

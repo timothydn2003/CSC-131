@@ -14,3 +14,4 @@ const useFetchDOS = () => {
     return { dosList }
 }
 export default useFetchDOS;
+//this file is to fetch the data

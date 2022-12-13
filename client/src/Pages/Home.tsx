@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import { validSSN } from '../regex.js';
+import { validSSN } from '../Functions/regex.js';
 import DMV from '../Components/DMV.js';
 import DOS from '../Components/DOS.js';
 import SS from '../Components/SS.js';
@@ -67,13 +67,13 @@ const Home = () => {
      //returns an error message if SSN is entered incorrectly
     
      const set = () => {
-       
         setDMVName("")
         setdmvDOB("")
         setDOSName("")
         setdosDOB("")
         setSSName("")
         setSSDOB("")
+        //sets all variables to empty so we can check if the person exists 
 
         setSSN(num)
         dmvList.map((data) => {
@@ -94,11 +94,14 @@ const Home = () => {
                 setSSDOB(data.dob)
             }
         })
-        if(num!=""){
+        //loop through each department to check data
+
+        if(num!==""){
             setShowButton(true);
         }else{
             setShowButton(false)
         }
+        //if no ssn is inputted then data matching button wont appear
 
     }
     //sets names and dob when ssn is inputted
