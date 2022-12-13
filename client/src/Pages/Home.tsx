@@ -28,11 +28,11 @@ const Home = () => {
     const[ssn,setSSN] = useState("");
     const[alerts ,setAlerts]  = useState<Status>('uninitialized')
     const[dmvName,setDMVName] = useState<string>("")
-    const[dmvDOB, setdmvDOB] = useState("");
+    const[dmvDOB, setdmvDOB] = useState<string>("");
     const[dosName,setDOSName] = useState<string>("")
-    const[dosDOB, setdosDOB] = useState("");
+    const[dosDOB, setdosDOB] = useState<string>("");
     const[ssName, setSSName] = useState<string>("");
-    const[ssDOB, setSSDOB] = useState("");
+    const[ssDOB, setSSDOB] = useState<string>("");
     const[matches,setMatches] = useState(false)
     const[show,setShow] = useState(false)
     const handleOpen = () => setShow(true)
@@ -42,6 +42,7 @@ const Home = () => {
     const handleClose2 = () => setShow2(false)
     const[showButton, setShowButton] = useState(false);
 
+    //declaring states
     const style = {
         position: 'absolute',
         top: '50%',
@@ -55,7 +56,6 @@ const Home = () => {
         height: 200
       };
 
-    //declaring states
     const validate = () => {
         if (!validSSN.test(num)) {
            setAlerts('error');
@@ -67,6 +67,7 @@ const Home = () => {
      //returns an error message if SSN is entered incorrectly
     
      const set = () => {
+       
         setDMVName("")
         setdmvDOB("")
         setDOSName("")
@@ -75,7 +76,7 @@ const Home = () => {
         setSSDOB("")
 
         setSSN(num)
-        ssList.map((data) => {
+        dmvList.map((data) => {
             if(data.ssn === num){
                 setDMVName(data.name)
                 setdmvDOB(data.dob)
@@ -115,7 +116,7 @@ const Home = () => {
         }
         //checks to see if data matches
         handleOpen()
-
+        
     }
     return(
         <div className='home'>

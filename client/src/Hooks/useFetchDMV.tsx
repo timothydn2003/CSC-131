@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 
 const useFetchDMV = () => {
     const{entities} = useDMV();
-    const[dmvList,setDMVList] = useState([])
+    const[dmvList,setDMVList] = useState<any[]>([])
     useEffect(() => {
         const getList = async() => {    
             const response = await entities.people.list();

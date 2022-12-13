@@ -2,7 +2,7 @@ import useSS from "./useSS"
 import{ useState,useEffect } from 'react'
 const useFetchSS = () => {
     const{entities} = useSS();
-    const[ssList,setSSList] = useState([])
+    const[ssList,setSSList] = useState<any[]>([])
 
     useEffect(() => {
         const getList = async() => {    
